@@ -8,4 +8,35 @@
     android:background="@drawable/sign_up"
     tools:context=".SignUp">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="214dp"
+        android:layout_height="102dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:dropDownWidth="match_parent"
+        android:dropDownHeight="wrap_content"
+        android:dropDownHorizontalOffset="40dp"
+        android:dropDownVerticalOffset="40dp"
+        android:entries="@array/role"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="156dp"
+        android:layout_height="82dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:onClick="signUp"
+        android:text="Sign Up"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+
+
+
 </LinearLayout>
