@@ -55,7 +55,7 @@
             android:layout_width="175dp"
             android:layout_height="149dp"
             android:layout_gravity="center"
-            android:alpha="0.5"
+            android:alpha="0.8"
             app:srcCompat="@drawable/hand" />
     </LinearLayout>
 
@@ -67,22 +67,30 @@
 
         <Button
             android:id="@+id/sign_up"
-            android:layout_width="300dp"
+            android:layout_width="203dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/button_background"
             android:fontFamily="serif"
-            android:text="Sing Up"
-            android:textSize="20dp" />
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/sign_in"
-            android:layout_width="300dp"
+            android:layout_width="204dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/sign_in_btn"
             android:fontFamily="serif"
-            android:text="Sing In"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:textSize="20dp" />
     </LinearLayout>
 

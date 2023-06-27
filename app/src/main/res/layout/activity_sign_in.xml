@@ -4,6 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/sign_in"
-    tools:context=".SignIn"/>
+    android:orientation="vertical"
+
+    tools:context=".SignIn">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="356dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="serif"
+        android:text="Sign In! "
+        android:textColor="#DFE4F6F5"
+        android:textSize="70dp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:drawableStart="@drawable/ic_email_p"
+        android:drawablePadding="12dp"
+        android:paddingStart="20dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edittext_background"
+        android:drawableStart="@drawable/baseline_lock_24"
+        android:drawablePadding="12dp"
+        android:paddingStart="20dp"
+        android:hint="Enter your Password"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="2dp"
+        android:text="Remember me"
+        android:theme="@style/mycheckbox"
+        android:textColor="#A9656464"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="141dp"
+        android:layout_height="78dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/sign_in_btn"
+        android:fontFamily="serif"
+        android:text="Sign In"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp" />
+</LinearLayout>
+
+<!--  5876DD -->

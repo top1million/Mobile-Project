@@ -8,4 +8,50 @@
     android:background="@drawable/sign_up"
     tools:context=".SignUp">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up As"
+        android:textSize="30dp"
+        android:fontFamily="serif"
+        android:textColor="#ffffff"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginBottom="100dp"
+        />
+
+    <Spinner
+
+        android:paddingStart="20dp"
+        android:id="@+id/spinner"
+        android:layout_width="277dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="20dp"
+        android:dropDownWidth="match_parent"
+        android:dropDownHeight="wrap_content"
+        android:dropDownHorizontalOffset="40dp"
+        android:dropDownVerticalOffset="40dp"
+        android:background="@drawable/style_spinner"
+        android:entries="@array/role"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/sign_in_btn"
+        android:onClick="signUp"
+        android:text="Sign Up"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+
 </LinearLayout>

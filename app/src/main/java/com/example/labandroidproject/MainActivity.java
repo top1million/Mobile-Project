@@ -7,10 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 public class MainActivity extends AppCompatActivity {
 // This is the main activity of the app. It is the first screen that the user sees when the app is launched.
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

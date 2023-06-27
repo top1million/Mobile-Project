@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="mycheckbox" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+
+        <!-- this is for checkbox coloring -->
+        <item name="colorControlNormal">#656566</item>
+
+        <!-- this is for checkbox coloring -->
+
+    </style>
+</resources>
+
+<!-- this is for checkbox coloring -->
