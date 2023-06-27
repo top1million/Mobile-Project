@@ -2,6 +2,9 @@ package com.example.labandroidproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,54 +13,41 @@ import com.example.labandroidproject.Fragments.FirstFragment;
 import com.example.labandroidproject.Fragments.FourthFragment;
 import com.example.labandroidproject.Fragments.SecondFragment;
 import com.example.labandroidproject.Fragments.ThirdFragment;
+import com.example.labandroidproject.databinding.ActivityHomePageBinding;
+import com.example.labandroidproject.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class homePage extends AppCompatActivity implements BottomNavigationView
-        .OnNavigationItemSelectedListener{
-    BottomNavigationView bottomNavigationView;
+public class homePage extends AppCompatActivity{
+    ActivityHomePageBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        binding=ActivityHomePageBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragment(new FirstFragment());
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int id=item.getItemId();
+            if (id == R.id.navigation_home){
+                replaceFragment(new FirstFragment());
+            }
+            else if (id == R.id.messages){
+                replaceFragment(new SecondFragment());
+            }
+            else if (id == R.id.profile){
+                replaceFragment(new ThirdFragment());
+            }
+            else if (id == R.id.settings){
+                replaceFragment(new FourthFragment());
+            }
+            return true;
+        });
+
     }
-    FirstFragment firstFragment = new FirstFragment();
-    SecondFragment secondFragment = new SecondFragment();
-    ThirdFragment thirdFragment = new ThirdFragment();
-    FourthFragment fourthFragment = new FourthFragment();
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.navigation_home:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, firstFragment)
-                        .commit();
-                return true;
-
-            case R.id.messages:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, secondFragment)
-                        .commit();
-                return true;
-
-            case R.id.settings:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, thirdFragment)
-                        .commit();
-                return true;
-            case:R.id.profile:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, fourthFragment)
-                        .commit();
-                return true;
-        }
-        return false;
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout,fragment);
+        fragmentTransaction.commit();
     }
+
 }
