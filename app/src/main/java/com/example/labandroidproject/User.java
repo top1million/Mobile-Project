@@ -1,5 +1,7 @@
 package com.example.labandroidproject;
 
+import android.net.Uri;
+
 public class User {
 
 //Email address. Must be in a correct email format. It is the primary key of the user.
@@ -13,12 +15,12 @@ public class User {
     private String firstName;
     private String lastName;
     private String password;
-    private String personalPhoto;
+    private Uri personalPhoto;
     private String Role;
     public User() {
     }
 
-    public User(String email, String firstName, String lastName, String password, String personalPhoto,String Role) {
+    public User(String email, String firstName, String lastName, String password, Uri personalPhoto,String Role) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -67,11 +69,11 @@ public class User {
         this.password = password;
     }
 
-    public String getPersonalPhoto() {
+    public Uri getPersonalPhoto() {
         return personalPhoto;
     }
 
-    public void setPersonalPhoto(String personalPhoto) {
+    public void setPersonalPhoto(Uri personalPhoto) {
         this.personalPhoto = personalPhoto;
     }
 }

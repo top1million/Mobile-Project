@@ -12,6 +12,7 @@
     <!--    this.password = password;-->
     <!--    this.personalPhoto = personalPhoto;-->
     <!--    this.Role = Role;-->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,6 +53,18 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         />
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="upload photo"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        />
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -61,6 +74,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:inputType="textPassword"
         />
     <EditText
         android:id="@+id/confirmPassword"
@@ -71,28 +85,22 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:inputType="textPassword"
         />
-    <ImageView
+
+
+    <Button
+        android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/personalPhoto"
-        />
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="156dp"
-        android:layout_height="82dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:onClick="signUp"
         android:text="Sign Up"
         android:textColor="#ffffff"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        />
 
 
 
