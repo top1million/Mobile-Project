@@ -22,7 +22,7 @@ public class SignIn extends AppCompatActivity {
         signIn.setOnClickListener(view -> {
             mAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(SignIn.this, HomePAge.class);
+                    Intent intent = new Intent(SignIn.this, homePage.class);
                     startActivity(intent);
                 }
             });
