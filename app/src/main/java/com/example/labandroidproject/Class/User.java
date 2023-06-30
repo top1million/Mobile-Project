@@ -1,7 +1,5 @@
 package com.example.labandroidproject.Class;
 
-import android.net.Uri;
-
 import java.util.ArrayList;
 
 public class User {
@@ -17,7 +15,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String password;
-    private Uri personalPhoto;
+    private String personalPhoto;
     private String Role;
     ArrayList<Message> messages = new ArrayList<Message>();
     public User() {
@@ -31,7 +29,7 @@ public class User {
         this.messages = messages;
     }
 
-    public User(String email, String firstName, String lastName, String password, Uri personalPhoto, String Role) {
+    public User(String email, String firstName, String lastName, String password, String personalPhoto, String Role) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -80,11 +78,11 @@ public class User {
         this.password = password;
     }
 
-    public Uri getPersonalPhoto() {
+    public String getPersonalPhoto() {
         return personalPhoto;
     }
 
-    public void setPersonalPhoto(Uri personalPhoto) {
+    public void setPersonalPhoto(String personalPhoto) {
         this.personalPhoto = personalPhoto;
     }
 }

@@ -12,6 +12,12 @@
         android:layout_height="wrap_content"
         android:hint="Enter reciver email"
         android:inputType="textEmailAddress" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter title"
+        android:id="@+id/title" />
+
 
     <EditText
         android:id="@+id/content"

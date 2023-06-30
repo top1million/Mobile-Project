@@ -1,7 +1,5 @@
 package com.example.labandroidproject.Class;
 
-import android.net.Uri;
-
 import java.util.ArrayList;
 
 public class Trainee extends User {
@@ -21,7 +19,7 @@ public class Trainee extends User {
     public Trainee() {
     }
 
-    public Trainee(String email, String firstName, String lastName, String password, Uri personalPhoto, String mobileNumber) {
+    public Trainee(String email, String firstName, String lastName, String password, String personalPhoto, String mobileNumber) {
         super(email, firstName, lastName, password, personalPhoto, "Trainee");
         this.mobileNumber = mobileNumber;
     }

@@ -26,14 +26,14 @@
             android:id="@+id/button11"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:text="Button" />
 
         <Button
             android:id="@+id/button12"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:text="Button" />
     </LinearLayout>
 
@@ -46,14 +46,14 @@
             android:id="@+id/button13"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:text="Button" />
 
         <Button
             android:id="@+id/button14"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:text="Button" />
     </LinearLayout>
 
@@ -66,14 +66,7 @@
             android:id="@+id/button15"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:layout_margin="30dp"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button16"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:text="Button" />
     </LinearLayout>
 </LinearLayout>

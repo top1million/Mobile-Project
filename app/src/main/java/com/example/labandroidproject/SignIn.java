@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -24,6 +25,9 @@ public class SignIn extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Intent intent = new Intent(SignIn.this, homePage.class);
                     startActivity(intent);
+                }
+                else {
+                    Toast.makeText(this, "Wrong email or password", Toast.LENGTH_SHORT).show();
                 }
             });
         });

@@ -1,7 +1,5 @@
 package com.example.labandroidproject.Class;
 
-import android.net.Uri;
-
 import java.util.ArrayList;
 
 public class Instructor extends User {
@@ -23,7 +21,7 @@ public class Instructor extends User {
     public Instructor() {
     }
     //TODO add course list
-    public Instructor(String email, String firstName, String lastName, String password, Uri personalPhoto, String mobileNumber, String specialization, String degree) {
+    public Instructor(String email, String firstName, String lastName, String password, String personalPhoto, String mobileNumber, String specialization, String degree) {
         super(email, firstName, lastName, password, personalPhoto, "Instructor");
         this.mobileNumber = mobileNumber;
         this.specialization = specialization;

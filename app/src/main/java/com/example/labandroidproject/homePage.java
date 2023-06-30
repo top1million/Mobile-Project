@@ -1,21 +1,17 @@
 package com.example.labandroidproject;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.example.labandroidproject.Fragments.FirstFragment;
 import com.example.labandroidproject.Fragments.FourthFragment;
 import com.example.labandroidproject.Fragments.SecondFragment;
 import com.example.labandroidproject.Fragments.ThirdFragment;
 import com.example.labandroidproject.databinding.ActivityHomePageBinding;
-import com.example.labandroidproject.databinding.ActivityMainBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class homePage extends AppCompatActivity{
     ActivityHomePageBinding binding;

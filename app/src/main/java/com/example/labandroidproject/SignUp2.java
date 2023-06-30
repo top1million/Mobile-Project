@@ -11,13 +11,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.labandroidproject.Class.Message;
 import com.example.labandroidproject.Class.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+
 public class SignUp2 extends AppCompatActivity {
     ImageView imageView;
-    Uri imageUri = null;
+    Uri imageUri ;
     FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
@@ -46,8 +49,11 @@ public class SignUp2 extends AppCompatActivity {
             newUser.setLastName(lastName.getText().toString());
             newUser.setEmail(email.getText().toString());
             newUser.setPassword(password.getText().toString());
+            String imageUri = this.imageUri.toString();
             newUser.setPersonalPhoto(imageUri);
             newUser.setRole(role);
+            ArrayList<Message> messages = new ArrayList<>();
+            newUser.setMessages(messages);
             db.collection("users").document(newUser.getEmail()).set(newUser);
             mAuth.createUserWithEmailAndPassword(newUser.getEmail(), newUser.getPassword()).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
