@@ -18,7 +18,7 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         mAuth = FirebaseAuth.getInstance();
         Button signIn = (Button) findViewById(R.id.signIn);
-        EditText email = (EditText) findViewById(R.id.email);
+        EditText email = (EditText) findViewById(R.id.textView_content);
         EditText password = (EditText) findViewById(R.id.password);
         signIn.setOnClickListener(view -> {
             mAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(task -> {
