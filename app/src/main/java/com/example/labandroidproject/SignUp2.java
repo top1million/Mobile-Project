@@ -31,6 +31,7 @@ public class SignUp2 extends AppCompatActivity {
         EditText email = findViewById(R.id.email);
         Button upload_photo = (Button) findViewById(R.id.upload);
         Button signUp = (Button) findViewById(R.id.signUp);
+        String role = getIntent().getStringExtra("role");
         upload_photo.setOnClickListener(view -> {
             Intent iGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(iGallery, 1);
@@ -46,7 +47,7 @@ public class SignUp2 extends AppCompatActivity {
             newUser.setEmail(email.getText().toString());
             newUser.setPassword(password.getText().toString());
             newUser.setPersonalPhoto(imageUri);
-            newUser.setRole("Admin");
+            newUser.setRole(role);
             db.collection("users").document(newUser.getEmail()).set(newUser);
             mAuth.createUserWithEmailAndPassword(newUser.getEmail(), newUser.getPassword()).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {

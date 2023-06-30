@@ -2,6 +2,8 @@ package com.example.labandroidproject.Class;
 
 import android.net.Uri;
 
+import java.util.ArrayList;
+
 public class User {
 
 //Email address. Must be in a correct email format. It is the primary key of the user.
@@ -17,10 +19,19 @@ public class User {
     private String password;
     private Uri personalPhoto;
     private String Role;
+    ArrayList<Message> messages = new ArrayList<Message>();
     public User() {
     }
 
-    public User(String email, String firstName, String lastName, String password, Uri personalPhoto,String Role) {
+    public ArrayList<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(ArrayList<Message> messages) {
+        this.messages = messages;
+    }
+
+    public User(String email, String firstName, String lastName, String password, Uri personalPhoto, String Role) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
