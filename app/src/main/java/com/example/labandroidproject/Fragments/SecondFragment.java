@@ -1,6 +1,7 @@
 package com.example.labandroidproject.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +10,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.labandroidproject.Class.Message;
 import com.example.labandroidproject.Class.User;
+import com.example.labandroidproject.MessegesAdapter;
 import com.example.labandroidproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Arrays;
+
 public class SecondFragment extends Fragment {
     FirebaseAuth mAuth;
+
 
     public SecondFragment() {
         // require a empty public constructor
@@ -29,39 +36,49 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mAuth = FirebaseAuth.getInstance();
-        View v = inflater.inflate(R.layout.fragment_second, container, false);
-        Button send = (Button) v.findViewById(R.id.send);
-        EditText content = (EditText) v.findViewById(R.id.content);
-        EditText receiver = (EditText) v.findViewById(R.id.email1);
-        EditText title = (EditText) v.findViewById(R.id.title);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        String loggedUser = mAuth.getCurrentUser().getEmail();
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DocumentReference docRef = db.collection("users").document(receiver.getText().toString());
-                docRef.get().addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        User reciver = task.getResult().toObject(User.class);
-                        if (reciver == null) {
-                            Toast.makeText(getContext(), "User not found", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        String contentText = content.getText().toString();
-                        Message message = new Message();
-                        message.setTitle(title.getText().toString());
-                        message.setMessage(contentText);
-                        message.setSender(loggedUser);
-                        message.setSeen(false);
-                        reciver.getMessages().add(message);
-                        docRef.set(reciver);
-                        Toast.makeText(getContext(), "Message sent", Toast.LENGTH_SHORT).show();
-                    }
 
-                });
+        View v = inflater.inflate(R.layout.fragment_second, container, false);
+
+        RecyclerView recyclerView =  v.findViewById(R.id.recyclerview);
+
+        String loggedUserEmail = mAuth.getCurrentUser().getEmail();
+        DocumentReference docRef = db.collection("users").document(loggedUserEmail);
+
+        docRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                User loggedUser = task.getResult().toObject(User.class);
+                if (loggedUser== null) {
+                    Toast.makeText(v.getContext(), "Error fetch/user not found", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+
+                  Message [] messegeList =  loggedUser.getMessages().toArray(new Message[0]);
+
+
+
+                recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+                recyclerView.setAdapter(new MessegesAdapter(v.getContext(), Arrays.asList(messegeList) ));
+
+
+
+
+
+
+            }else
+            {
+                recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+                recyclerView.setAdapter(new MessegesAdapter(v.getContext(), Arrays.asList(new Message[]{new Message()}) ));
 
             }
+
         });
+
+
+
+
 
         return v;
     }
