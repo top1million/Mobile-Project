@@ -1,12 +1,11 @@
 package com.example.labandroidproject.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -18,6 +17,7 @@ import com.example.labandroidproject.Class.Message;
 import com.example.labandroidproject.Class.User;
 import com.example.labandroidproject.MessegesAdapter;
 import com.example.labandroidproject.R;
+import com.example.labandroidproject.SendMessageActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,6 +26,7 @@ import java.util.Arrays;
 
 public class SecondFragment extends Fragment {
     FirebaseAuth mAuth;
+
 
 
     public SecondFragment() {
@@ -41,7 +42,15 @@ public class SecondFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_second, container, false);
 
         RecyclerView recyclerView =  v.findViewById(R.id.recyclerview);
+        Button sendNewButton = (Button) v.findViewById(R.id.button_sendNew);
 
+        sendNewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SendMessageActivity.class);
+                startActivity(intent);
+            }
+        });
         String loggedUserEmail = mAuth.getCurrentUser().getEmail();
         DocumentReference docRef = db.collection("users").document(loggedUserEmail);
 
