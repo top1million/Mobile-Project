@@ -61,7 +61,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_background"
         android:text="Sign In"
-        android:fontFamily="@font/montserratregular"
+        android:fontFamily="@font/montserratbold"
         android:textColor="#ffffff" />
 
 </LinearLayout>
