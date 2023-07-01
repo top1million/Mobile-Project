@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.LabAndroidProject" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">#8BC34A</item>
         <item name="colorPrimaryVariant">#07601F</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">#979797</item>
+        <item name="colorSecondaryVariant">#646464</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">#045C1C</item>
+        <item name="android:statusBarColor">#097025</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

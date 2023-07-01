@@ -4,70 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sign_up"
     android:orientation="vertical"
-    tools:context=".SignUp2">
-    <!--    this.email = email;-->
-    <!--    this.firstName = firstName;-->
-    <!--    this.lastName = lastName;-->
-    <!--    this.password = password;-->
-    <!--    this.personalPhoto = personalPhoto;-->
-    <!--    this.Role = Role;-->
+    android:background="@drawable/sign_up"
+    tools:context=".Student_SignUP">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Admin Sign up"
-        android:fontFamily="@font/montserratbold"
-        android:textSize="40sp"
-        android:textColor="#646464"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        />
+        android:fontFamily="@font/montserratbold"
+        android:text="Student Sign up"
+        android:textColor="#646464"
+        android:textSize="40sp" />
 
-    <EditText
-        android:id="@+id/firstName"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:drawableStart="@drawable/person_name"
-        android:background="@drawable/textview_background"
-        android:drawablePadding="12dp"
-        android:paddingRight="25dp"
-        android:paddingStart="20dp"
-        android:maxLength="20"
-        android:textColorHint="#979797"
-        android:hint="First Name" />
+    <LinearLayout
+        android:layout_width="421dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/lastName"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/textview_background"
-        android:drawableStart="@drawable/person_name"
-        android:drawablePadding="12dp"
-        android:hint="Last Name"
-        android:paddingStart="20dp"
-        android:paddingRight="25dp"
-        android:maxLength="20"
-        android:textColorHint="#979797" />
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/textview_background"
+            android:drawableStart="@drawable/person_name"
+            android:drawablePadding="12dp"
+            android:hint="First Name"
+            android:maxLength="20"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="166dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/textview_background"
+
+            android:drawablePadding="12dp"
+            android:hint="Last Name"
+            android:maxLength="20"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="42dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/textview_background"
         android:drawableStart="@drawable/green_email"
         android:drawablePadding="12dp"
@@ -77,19 +76,53 @@
         android:textColorHint="#979797" />
 
     <EditText
-        android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="42dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/textview_background"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:paddingStart="20dp"
+        android:paddingRight="25dp"
+        android:textColorHint="#979797"/>
+
+    <EditText
+        android:id="@+id/Address"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+
+        android:background="@drawable/textview_background"
+        android:drawableStart="@drawable/home"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Address"
+        android:paddingStart="20dp"
+        android:paddingRight="25dp"
+        android:inputType="textPostalAddress"
+        android:textColorHint="#979797"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+
+        android:background="@drawable/textview_background"
+        android:drawableStart="@drawable/green_lock"
         android:drawablePadding="12dp"
         android:hint="Password"
-        android:maxLength="15"
-        android:drawableStart="@drawable/green_lock"
         android:inputType="textPassword"
+        android:maxLength="15"
         android:paddingStart="20dp"
         android:paddingRight="25dp"
         android:textColorHint="#979797" />
@@ -97,17 +130,17 @@
     <EditText
         android:id="@+id/confirmPassword"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="42dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/textview_background"
         android:drawableStart="@drawable/green_lock"
         android:drawablePadding="12dp"
         android:hint="Confirm Password"
-        android:maxLength="15"
         android:inputType="textPassword"
+        android:maxLength="15"
         android:paddingStart="20dp"
         android:paddingRight="25dp"
         android:textColorHint="#979797" />
@@ -115,16 +148,15 @@
 
     <Button
         android:id="@+id/upload"
-        android:layout_width="182dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/register_buttons"
         android:fontFamily="@font/montserratregular"
         android:text="upload photo"
         android:textColor="#ffffff"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/signUp"
@@ -132,13 +164,12 @@
         android:layout_height="62dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="97dp"
+        android:layout_marginTop="125dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/register_buttons"
         android:fontFamily="@font/montserratregular"
         android:text="Sign Up"
         android:textColor="#ffffff"
         android:textSize="20sp" />
-
 
 </LinearLayout>

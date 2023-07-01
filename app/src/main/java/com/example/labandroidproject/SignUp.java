@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
@@ -17,10 +18,25 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         Button signUp = (Button) findViewById(R.id.btnSignUp);
         Spinner role = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.role, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        role.setAdapter(adapter);
         signUp.setOnClickListener(view -> {
-            Intent SignUp2 = new Intent(SignUp.this, SignUp2.class);
-            SignUp2.putExtra("role", role.getSelectedItem().toString());
-            startActivity(SignUp2);
+            String role1 = role.getSelectedItem().toString();
+            if (role1.equals("Student")) {
+                Intent intent = new Intent(SignUp.this, Student_SignUP.class);
+                intent.putExtra("role", role1);
+                startActivity(intent);
+            } else if (role1.equals("Instructor")) {
+                Intent intent = new Intent(SignUp.this, SignUp2.class);
+                intent.putExtra("role", role1);
+                startActivity(intent);
+            } else if (role1.equals("Admin")) {
+                Intent intent = new Intent(SignUp.this, SignUp2.class);
+                intent.putExtra("role", role1);
+                startActivity(intent);
+            }
         });
+
     }
 }
