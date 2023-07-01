@@ -10,40 +10,52 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_width="341dp"
+        android:layout_height="63dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="120dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:hint="Email" />
+        android:background="@drawable/textview_background"
+        android:drawableRight="@drawable/baseline_email_24"
+        android:paddingRight="25dp"
+        android:drawablePadding="12dp"
+        android:hint="Email Address"
+        android:paddingStart="20dp"
+        android:textColorHint="#979797"/>
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_width="344dp"
+        android:layout_height="62dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginBottom="2dp"
+        android:background="@drawable/textview_background"
+        android:drawableRight="@drawable/ic_lock_24"
+        android:paddingRight="25dp"
+        android:drawablePadding="12dp"
+        android:hint="Password"
+        android:textColorHint="#979797"
         android:inputType="textPassword"
-        />
+        android:paddingStart="20dp" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="40dp"
+        android:textColor="#646464"
         android:text="Remember me" />
 
     <Button
         android:id="@+id/signIn"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/button_background"
         android:text="Sign In"
         android:textColor="#ffffff" />
 

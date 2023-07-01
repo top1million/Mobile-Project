@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawableLeft="@android:drawable/sym_action_email"
+    >
+    <corners android:radius="15dp" /> <!-- Set the corner radius -->
+    <stroke
+        android:width="2dp"
+        android:color="#E3E3E3" />
+    <!-- set the background to white -->
+    <solid android:color="#F9F9F9"/> <!-- this one is optional -->
+
+</shape>
+
+    <!-- this is for edittext background -->
