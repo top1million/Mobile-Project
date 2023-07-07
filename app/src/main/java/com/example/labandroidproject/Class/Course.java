@@ -19,6 +19,16 @@ public class Course {
     private String courseSchedule;
     private String venue;
 
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    private boolean isAvailable = false;
+
     public Course(String courseTitle, String courseMainTopics, String prerequisites, String photo) {
         this.courseTitle = courseTitle;
         this.courseMainTopics = courseMainTopics;

@@ -9,13 +9,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/montserratbold"
         android:text="make course available"
         android:textColor="#646464"
-        android:textSize="40sp" />
+        android:textSize="30sp" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -31,7 +31,8 @@
         android:dropDownVerticalOffset="40dp"
         android:fontFamily="@font/montserratregular"
         android:paddingStart="20dp"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
