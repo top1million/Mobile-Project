@@ -28,6 +28,16 @@
         android:layout_marginBottom="20dp"
         android:inputType="textPassword"
         />
+    <CheckBox
+        android:layout_width="170dp"
+        android:layout_height="47dp"
+        android:id="@+id/remember_me_chkb"
+        android:buttonTint="@color/black"
+        android:layout_marginTop="20dp"
+        android:text="@string/check_remembber"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="30dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

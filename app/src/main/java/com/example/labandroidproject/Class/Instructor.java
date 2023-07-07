@@ -19,6 +19,7 @@ public class Instructor extends User {
     }
 
     public Instructor() {
+
     }
     //TODO add course list
     public Instructor(String email, String firstName, String lastName, String password, String personalPhoto, String mobileNumber, String specialization, String degree) {

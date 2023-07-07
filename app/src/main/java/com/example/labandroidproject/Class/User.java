@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class User {
 
-//Email address. Must be in a correct email format. It is the primary key of the user.
+    //Email address. Must be in a correct email format. It is the primary key of the user.
 //First name. Minimum 3 characters and maximum 20 characters.
 //Last name. Minimum 3 characters and maximum 20 characters.
 //Password. Minimum 8 characters and maximum 15 characters. It must contain at least one
 //number, one lowercase letter, and one uppercase letter.
 //Confirm password field.
 //Personal photo
+
     private String email;
     private String firstName;
     private String lastName;
@@ -18,8 +19,6 @@ public class User {
     private String personalPhoto;
     private String Role;
     ArrayList<Message> messages = new ArrayList<Message>();
-    public User() {
-    }
 
     public ArrayList<Message> getMessages() {
         return messages;
@@ -27,6 +26,10 @@ public class User {
 
     public void setMessages(ArrayList<Message> messages) {
         this.messages = messages;
+    }
+
+    public User() {
+
     }
 
     public User(String email, String firstName, String lastName, String password, String personalPhoto, String Role) {
@@ -41,6 +44,7 @@ public class User {
     public String getRole() {
         return Role;
     }
+
 
     public void setRole(String role) {
         Role = role;
