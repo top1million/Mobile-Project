@@ -1,14 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".admin.make_available">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/montserratbold"
+        android:text="make course available"
+        android:textColor="#646464"
+        android:textSize="40sp" />
 
-</FrameLayout>
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="277dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/style_spinner"
+        android:dropDownWidth="match_parent"
+        android:dropDownHeight="wrap_content"
+        android:dropDownHorizontalOffset="40dp"
+        android:dropDownVerticalOffset="40dp"
+        android:fontFamily="@font/montserratregular"
+        android:paddingStart="20dp"
+        android:spinnerMode="dropdown" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/instructorName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/textview_background"
+            android:drawablePadding="12dp"
+            android:hint="instructorName"
+            android:maxLength="20"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+
+        <EditText
+            android:id="@+id/registrationDeadline"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="12dp"
+            android:hint="registrationDeadline"
+            android:inputType="date"
+            android:maxLength="20"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+
+        <EditText
+            android:id="@+id/courseStartDate"
+            android:inputType="datetime"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/textview_background"
+            android:drawablePadding="12dp"
+            android:hint="courseStartDate"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+        <EditText
+            android:id="@+id/courseSchedule"
+            android:inputType="datetime"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/textview_background"
+            android:drawablePadding="12dp"
+            android:hint="courseSchedule"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+        <EditText
+            android:id="@+id/courseVenue"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/textview_background"
+            android:drawablePadding="12dp"
+            android:hint="courseVenue"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserratbold"
+            android:text="make available"
+            android:textSize="20sp"
+            android:id="@+id/makeAvailable"/>
+
+
+    </LinearLayout>
+</LinearLayout>
