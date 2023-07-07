@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/sign_up"
-    tools:context=".SignUp">
+    tools:context=".SignUps.SignUp">
 
     <Spinner
         android:paddingStart="20dp"
@@ -24,7 +24,8 @@
         android:background="@drawable/style_spinner"
         android:fontFamily="@font/montserratregular"
         android:entries="@array/role"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        />
 
     <Button
         android:id="@+id/btnSignUp"

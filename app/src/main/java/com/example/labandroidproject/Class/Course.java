@@ -1,24 +1,31 @@
 package com.example.labandroidproject.Class;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Course {
-//    auto-generated course number, course
+    //    auto-generated course number, course
 //title, course main topics, prerequisites, photo, etc.
 //    instructor name, registration deadline, course start date, course
 //      schedule, and venue
-    private int courseNumber;
-    private static final AtomicInteger count = new AtomicInteger(0);
     private String courseTitle;
     private String courseMainTopics;
-    private ArrayList<Course> prerequisites;
+    private String prerequisites;
     private String photo;
     private String instructorName;
     private String registrationDeadline;
     private String courseStartDate;
     private String courseSchedule;
     private String venue;
+
+    public Course(String courseTitle, String courseMainTopics, String prerequisites, String photo) {
+        this.courseTitle = courseTitle;
+        this.courseMainTopics = courseMainTopics;
+        this.prerequisites = prerequisites;
+        this.photo = photo;
+    }
+
 
     public String getInstructorName() {
         return instructorName;
@@ -63,17 +70,6 @@ public class Course {
     public Course() {
     }
 
-    public Course(String courseTitle, String courseMainTopics, ArrayList<Course> prerequisites, String photo) {
-        this.courseNumber = count.incrementAndGet();
-        this.courseTitle = courseTitle;
-        this.courseMainTopics = courseMainTopics;
-        this.prerequisites = prerequisites;
-        this.photo = photo;
-    }
-
-    public int getCourseNumber() {
-        return courseNumber;
-    }
 
     public String getCourseTitle() {
         return courseTitle;
@@ -83,7 +79,7 @@ public class Course {
         return courseMainTopics;
     }
 
-    public ArrayList<Course> getPrerequisites() {
+    public String getPrerequisites() {
         return prerequisites;
     }
 
@@ -91,9 +87,6 @@ public class Course {
         return photo;
     }
 
-    public void setCourseNumber(int courseNumber) {
-        this.courseNumber = courseNumber;
-    }
 
     public void setCourseTitle(String courseTitle) {
         this.courseTitle = courseTitle;
@@ -103,14 +96,15 @@ public class Course {
         this.courseMainTopics = courseMainTopics;
     }
 
-    public void setPrerequisites(ArrayList<Course> prerequisites) {
+    public void setPrerequisites(String prerequisites) {
         this.prerequisites = prerequisites;
     }
 
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-    public void makeCourseAvailable(String instructorName, String registrationDeadline, String courseStartDate, String courseSchedule, String venue){
+
+    public void makeCourseAvailable(String instructorName, String registrationDeadline, String courseStartDate, String courseSchedule, String venue) {
         this.instructorName = instructorName;
         this.registrationDeadline = registrationDeadline;
         this.courseStartDate = courseStartDate;

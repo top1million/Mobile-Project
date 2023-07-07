@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".admin.edit_delete_course">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/montserratbold"
+        android:text="Edit and Delete Courses"
+        android:textColor="#646464"
+        android:textSize="40sp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="277dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/style_spinner"
+        android:dropDownWidth="match_parent"
+        android:dropDownHeight="wrap_content"
+        android:dropDownHorizontalOffset="40dp"
+        android:dropDownVerticalOffset="40dp"
+        android:fontFamily="@font/montserratregular"
+        android:paddingStart="20dp"
+        android:spinnerMode="dropdown" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/courseTitle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/textview_background"
+            android:drawablePadding="12dp"
+            android:hint="courseTitle"
+            android:maxLength="20"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+
+        <EditText
+            android:id="@+id/courseMainTopics"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="12dp"
+            android:hint="course Main topics"
+            android:maxLength="20"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+
+        <EditText
+            android:id="@+id/prerequisites"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/textview_background"
+            android:drawablePadding="12dp"
+            android:hint="prerequisites"
+            android:paddingStart="20dp"
+            android:paddingRight="25dp"
+            android:textColorHint="#979797" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/edit"
+                android:layout_width="163dp"
+                android:layout_height="62dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/register_buttons"
+                android:fontFamily="@font/montserratregular"
+                android:text="edit"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="163dp"
+                android:layout_height="62dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/register_buttons"
+                android:fontFamily="@font/montserratregular"
+                android:text="delete"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

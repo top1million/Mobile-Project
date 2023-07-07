@@ -9,7 +9,7 @@
 
 
     android:orientation="vertical"
-    tools:context=".Fragments.FirstFragment" >
+    tools:context=".admin.admin_home_page" >
 
     <ImageView
         android:id="@+id/imageView2"
@@ -23,18 +23,18 @@
         android:layout_gravity="center"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/create_course"
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:text="Button" />
+            android:text="Create Course" />
 
         <Button
-            android:id="@+id/button12"
+            android:id="@+id/edit_delete_course"
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:text="Button" />
+            android:text="Edit or Delete Courses" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,18 +43,18 @@
         android:orientation="horizontal"
         android:layout_gravity="center">
         <Button
-            android:id="@+id/button13"
+            android:id="@+id/make_available"
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:text="Button" />
+            android:text="Make Course Available" />
 
         <Button
-            android:id="@+id/button14"
+            android:id="@+id/applications_control"
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:text="Button" />
+            android:text="Control Applications" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,10 +63,16 @@
         android:orientation="horizontal"
         android:layout_gravity="center">
         <Button
-            android:id="@+id/button15"
+            android:id="@+id/students_instructors"
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:text="Button" />
+            android:text="View Students and Instructors" />
+        <Button
+            android:id="@+id/course_history"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:text="View Course History" />
     </LinearLayout>
 </LinearLayout>

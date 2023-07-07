@@ -1,4 +1,4 @@
-package com.example.labandroidproject;
+package com.example.labandroidproject.SignUps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.labandroidproject.Class.Message;
 import com.example.labandroidproject.Class.User;
+import com.example.labandroidproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 

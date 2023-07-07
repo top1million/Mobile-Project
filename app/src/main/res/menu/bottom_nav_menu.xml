@@ -5,10 +5,6 @@
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Home" />
 
-    <item
-        android:id="@+id/messages"
-        android:icon="@drawable/ic_messages_foreground"
-        android:title="Messages" />
 
     <item
         android:id="@+id/profile"
