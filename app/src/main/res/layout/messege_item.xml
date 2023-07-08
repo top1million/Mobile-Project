@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/textView_sender"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        tools:text="Sender" />
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_title"
+        android:layout_toEndOf="@id/textView_sender"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        tools:text="Title"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_content"
+        android:layout_toEndOf="@id/textView_sender"
+        android:layout_below="@id/textView_title"
+        android:textColor="@color/black"
+        tools:text="asdlhasdjlasdlkjaslkdjaslk;djas;lkdjas;lkdjasl;kdjlas;kjdlkasjd;laskjdl;kasjd;lkasjdl;asjdl;sa"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/textView_sender"
+        android:layout_marginTop="10dp"
+        android:background="#DAD8D8"/>
+
+
+</RelativeLayout>
