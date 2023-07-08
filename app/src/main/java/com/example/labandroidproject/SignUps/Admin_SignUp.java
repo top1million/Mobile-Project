@@ -62,7 +62,7 @@ public class Admin_SignUp extends AppCompatActivity {
             ArrayList<Message> messages = new ArrayList<>();
             newUser.setMessages(messages);
             newUser.setRole("Admin");
-            db.collection("users_test").document(newUser.getEmail()).set(newUser);
+            db.collection("Admin").document(newUser.getEmail()).set(newUser);
             mAuth.createUserWithEmailAndPassword(newUser.getEmail(), newUser.getPassword()).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     Intent intent = new Intent(Admin_SignUp.this, SignIn.class);

@@ -16,15 +16,14 @@ import com.example.labandroidproject.Class.Instructor;
 import com.example.labandroidproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.StorageReference;
+
 
 public class Instructor_SignUp extends AppCompatActivity {
     ImageView imageView;
+    int storeId;
     Uri imageUri ;
-    int imageId;
     FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +44,7 @@ public class Instructor_SignUp extends AppCompatActivity {
         });
         Button signUp = (Button) findViewById(R.id.signUp);
         signUp.setOnClickListener(view -> {
-            if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
+            if (password.getText().toString().equals(confirmPassword.getText().toString())) {
                 Toast.makeText(this, "password is not the same", Toast.LENGTH_SHORT).show();
             }
             mAuth = FirebaseAuth.getInstance();
@@ -57,9 +56,9 @@ public class Instructor_SignUp extends AppCompatActivity {
             newUser.setMobileNumber(phone.getText().toString());
             newUser.setAddress(address.getText().toString());
             newUser.setSpecialization(specialization.getSelectedItem().toString());
-
+            newUser.setImageId(storeId);
             newUser.setRole("Instructor");
-            db.collection("users_test").document(newUser.getEmail()).set(newUser);
+            db.collection("Instructor").document(newUser.getEmail()).set(newUser);
             Toast.makeText(this, "Instructor added successfully", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, Instructor_SignUp.class);
             startActivity(intent);
@@ -73,6 +72,17 @@ public class Instructor_SignUp extends AppCompatActivity {
             imageUri = data.getData();
             imageView = (ImageView) findViewById(R.id.imageView);
             imageView.setImageURI(imageUri);
+            //upload image to firebase storage
+
+            //get image id
+            storeId = Integer.parseInt(imageUri.getLastPathSegment());
+
+            //get imageview from firebase storage
+            //StorageReference storageRef = storage.getReference();
+            //StorageReference pathReference = storageRef.child("images/"+storeId);
+            //Glide.with(this).load(pathReference).into(imageView);
+
+
         }
     }
 }

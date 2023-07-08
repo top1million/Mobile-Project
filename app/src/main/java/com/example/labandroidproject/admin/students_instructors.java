@@ -5,23 +5,21 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.example.labandroidproject.Class.Instructor;
 import com.example.labandroidproject.Class.Trainee;
 import com.example.labandroidproject.R;
-import com.example.labandroidproject.traineeAdapter;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 public class students_instructors extends Fragment {
 
@@ -37,32 +35,34 @@ public class students_instructors extends Fragment {
         View v = inflater.inflate(R.layout.fragment_students_instructors, container, false);
         Spinner spinner = v.findViewById(R.id.spinner);
         CollectionReference users = db.collection("users_test");
-        String [] traineeFirstNames = new String[100];
-        String [] traineeLastNames = new String[100];
-        int [] traineeImages = new int[100];
-        users.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()){
-                int i = 0;
-                for(QueryDocumentSnapshot document : task.getResult()){
-                    String role = document.getString("role");
-                    if (role.equals("Trainee")){
-                        String firstName = document.getString("firstName");
-                        String lastName = document.getString("lastName");
-                        String image = document.getString("image");
-                        traineeFirstNames[i] = firstName;
-                        traineeLastNames[i] = lastName;
-                        traineeImages[i] = Integer.parseInt(image);
-                        i++;
+        TextView textView =  v.findViewById(R.id.textView2);
+        if(spinner.getSelectedItem().toString().equals("Students")){
+            ArrayList<Trainee> trainees = new ArrayList<>();
+            users.whereEqualTo("role","Trainee").get().addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot document : task.getResult()){
+                        Trainee trainee = document.toObject(Trainee.class);
+                        trainees.add(trainee);
+                        textView.setText(trainee.getFirstName()+" "+trainee.getLastName()+"\n");
+
                     }
                 }
-            }
-        });
-        if (spinner.getSelectedItem().toString().equals("Students")){
-            RecyclerView recyclerView = v.findViewById(R.id.recycler);
-            recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-            traineeAdapter adapter = new traineeAdapter(traineeFirstNames,traineeLastNames,traineeImages);
-            recyclerView.setAdapter(adapter);
+            });
         }
+        else{
+            ArrayList<Instructor> instructors = new ArrayList<>();
+            users.whereEqualTo("role","Instructor").get().addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot document : task.getResult()){
+                        Instructor instructor = document.toObject(Instructor.class);
+                        instructors.add(instructor);
+                        textView.setText(instructor.getFirstName()+" "+instructor.getLastName()+"\n");
+                    }
+
+                }
+            });
+        }
+
 
 
 

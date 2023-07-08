@@ -62,7 +62,7 @@ public class Student_SignUP extends AppCompatActivity {
             String imageUri = this.imageUri.toString();
             newUser.setPersonalPhoto(imageUri);
             newUser.setRole("Student");
-            db.collection("users_test").document(newUser.getEmail()).set(newUser);
+            db.collection("Student").document(newUser.getEmail()).set(newUser);
             Intent intent = new Intent(Student_SignUP.this, SignIn.class);
             startActivity(intent);
         });
