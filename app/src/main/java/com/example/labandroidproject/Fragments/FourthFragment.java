@@ -23,6 +23,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -35,6 +38,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.labandroidproject.Class.UpdateEmailActivity;
+import com.example.labandroidproject.Class.UploadProfilePicActivity;
 import com.example.labandroidproject.Class.User;
 import com.example.labandroidproject.MainActivity;
 import com.example.labandroidproject.R;
@@ -52,6 +57,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -61,10 +67,9 @@ public class FourthFragment extends Fragment {
     public static final String SHARED_PREFS = "sharedPrefs";
 
     private ImageView mImageView;
-    private TextView textViewWelcome;
-    private Uri ImageUri;
-    String fullName;
-    String email;
+    private TextView textViewWelcome, updage_email;
+    private Uri uri;
+    String Uid;
 
 
     public FourthFragment() {
@@ -83,18 +88,50 @@ public class FourthFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        setHasOptionsMenu(true);
         mAuth = FirebaseAuth.getInstance();
-
+        mImageView= view.findViewById(R.id.image_profile_picture);
         Button logout = view.findViewById(R.id.signOut);
         textViewWelcome = view.findViewById(R.id.text_username);
 
-        //mImageView = view.findViewById(R.id.image_profile_picture);
-        //Uri uri = firebaseUser.getPhotoUrl();
-        //fullName = firebaseUser.getDisplayName();
-
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
+
+        //Set User DP (After user has uploaded)
+
+        Uri uri = firebaseUser.getPhotoUrl();
+
+        //ImageViewer setImageURI() should not be used with regular URI. So we are using Picasso
+        Picasso.with(getActivity()).load(uri).into(mImageView);
+
+
+        TextView updage_email = view.findViewById(R.id.text_update_email);
+        updage_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), UpdateEmailActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+        mImageView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), UploadProfilePicActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+        authProfile = FirebaseAuth.getInstance();
+
         if (firebaseUser == null) {
             Toast.makeText(getActivity(), "Something went wrong! User's details are not avaibale at the moment", Toast.LENGTH_SHORT).show();
         } else {
@@ -103,15 +140,10 @@ public class FourthFragment extends Fragment {
         }
 
 
-        //textViewWelcome.setText("Welcome, "+fullName+"!");
-        //String email = firebaseUser.getEmail();
-        //Toast.makeText(getActivity(), "Weclome"+email, Toast.LENGTH_SHORT).show();
-
-
         sharedPreferences = requireActivity().getPreferences(getActivity().MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         // Retrieve the saved theme mode from SharedPreferences
-        int savedThemeMode = sharedPreferences.getInt("themeMode", AppCompatDelegate.MODE_NIGHT_NO);
+        int savedThemeMode = sharedPreferences.getInt("themeMode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
 
         // Set the saved theme mode
         AppCompatDelegate.setDefaultNightMode(savedThemeMode);
@@ -119,7 +151,6 @@ public class FourthFragment extends Fragment {
         RadioGroup themeRadioGroup = view.findViewById(R.id.radio_group_theme);
         RadioButton lightThemeRadioButton = view.findViewById(R.id.radio_light_theme);
         RadioButton darkThemeRadioButton = view.findViewById(R.id.radio_dark_theme);
-        // Save the new theme mode to SharedPreferences
 
         // Set the current theme mode radio button as checked
         if (savedThemeMode == AppCompatDelegate.MODE_NIGHT_NO) {
@@ -206,6 +237,29 @@ public class FourthFragment extends Fragment {
 
     }
 
+    //Creating ActionBar menu
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.common_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menu_refresh) {
+            // Refresh Fragment
+            FragmentTransaction fragmentTransaction = requireActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.detach(this).attach(this).commit();
+            Toast.makeText(requireContext(), "Fragment Refreshed", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private void showChangePasswordDialog() {
         //inflate layout for dialog

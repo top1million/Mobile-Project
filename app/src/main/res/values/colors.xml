@@ -10,7 +10,7 @@
     <color name="darkBackground">#333333</color>
     <color name="darkTextColorPrimary">#FFFFFF</color>
     <color name="darkTextColorSecondary">#CCCCCC</color>
-
+    <color name="dark_green">#006400</color>
     <!-- Light theme colors -->
     <color name="lightBackground">#F5F5F5</color>
     <color name="lightTextColorPrimary">#212121</color>

@@ -1,252 +1,270 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container"
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <!-- Account Section -->
-        <TextView
-            android:id="@+id/text_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Username"
-            android:textColor="@color/purple_200"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/image_profile_picture"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center_horizontal"
-            android:contentDescription="Profile Picture"
-            android:padding="16dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/hand" />
-
-        <!-- Theme Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
-            android:text="Theme"
-            android:textColor="@color/purple_200"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <RadioGroup
-            android:id="@+id/radio_group_theme"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/radio_light_theme"
+            <!-- Account Section -->
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Username"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/image_profile_picture"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="Profile Picture"
+                android:padding="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hand" />
+
+            <!-- Theme Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="Theme"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_light_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="16dp"
+                    android:text="Light Mode"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_dark_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="16dp"
+                    android:text="Dark Mode"
+                    android:textSize="14sp" />
+
+            </RadioGroup>
+
+            <!-- Account Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="Account"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_update_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="12dp"
                 android:paddingStart="24dp"
                 android:paddingEnd="16dp"
-                android:text="Light Mode"
+                android:text="Update Email"
                 android:textSize="14sp" />
-
-            <RadioButton
-                android:id="@+id/radio_dark_theme"
+            <TextView
+                android:id="@+id/text_change_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="12dp"
                 android:paddingStart="24dp"
                 android:paddingEnd="16dp"
-                android:text="Dark Mode"
+                android:text="Change Password"
                 android:textSize="14sp" />
 
-        </RadioGroup>
+            <Button
+                android:id="@+id/signOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Log out"
+                android:textSize="14sp" />
 
-        <!-- Account Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
-            android:text="Account"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <!-- Notifications Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="Notifications"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_change_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Change Password"
-            android:textSize="14sp" />
+            <Switch
+                android:id="@+id/switch_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Enable Notifications"
+                android:textSize="14sp" />
 
-        <Button
-            android:id="@+id/signOut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Log out"
-            android:textSize="14sp" />
+            <EditText
+                android:id="@+id/etToken"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textMultiLine|textPersonName"
+                android:text="Name" />
 
-        <!-- Notifications Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
-            android:text="Notifications"
-            android:textColor="@color/purple_200"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <!-- Data and Storage Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="Data and Storage"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <Switch
-            android:id="@+id/switch_notifications"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Enable Notifications"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_clear_cache"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Clear Cache"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/etToken"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textMultiLine|textPersonName"
-            android:text="Name" />
+            <TextView
+                android:id="@+id/text_manage_storage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Manage Storage"
+                android:textSize="14sp" />
 
-        <!-- Data and Storage Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
-            android:text="Data and Storage"
-            android:textColor="@color/purple_200"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <!-- Privacy and Security Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="Privacy and Security"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_clear_cache"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Clear Cache"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_privacy_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Privacy Settings"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/text_manage_storage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Manage Storage"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_security_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Security Settings"
+                android:textSize="14sp" />
 
-        <!-- Privacy and Security Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
-            android:text="Privacy and Security"
-            android:textColor="@color/purple_200"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <!-- About Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="About"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_privacy_settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Privacy Settings"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_app_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="App Version"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/text_security_settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Security Settings"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_terms_of_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Terms of Service"
+                android:textSize="14sp" />
 
-        <!-- About Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingTop="24dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
-            android:text="About"
-            android:textColor="@color/purple_200"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_privacy_policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Privacy Policy"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/text_app_version"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="App Version"
-            android:textSize="14sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/text_terms_of_service"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Terms of Service"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/text_privacy_policy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="12dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="16dp"
-            android:text="Privacy Policy"
-            android:textSize="14sp" />
-
-    </LinearLayout>
-
-</ScrollView>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

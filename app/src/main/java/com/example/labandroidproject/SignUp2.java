@@ -1,11 +1,14 @@
 package com.example.labandroidproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,10 +16,17 @@ import android.widget.Toast;
 
 import com.example.labandroidproject.Class.Message;
 import com.example.labandroidproject.Class.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 public class SignUp2 extends AppCompatActivity {
@@ -25,6 +35,7 @@ public class SignUp2 extends AppCompatActivity {
     FirebaseUser firebaseUser;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
+    StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +58,7 @@ public class SignUp2 extends AppCompatActivity {
             Intent iGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(iGallery, 1);
         });
+
         signUp.setOnClickListener(view -> {
             if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
                 Toast.makeText(this, "Please make sure password = confirm password", Toast.LENGTH_SHORT).show();
@@ -88,6 +100,7 @@ public class SignUp2 extends AppCompatActivity {
             });
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -96,3 +109,36 @@ public class SignUp2 extends AppCompatActivity {
         }
     }
 }
+    /*
+    private void UploadPic(){
+        if(imageUri!=null)
+        {
+            //save the image with uid of the currently logged user
+            StorageReference fileReference = storageReference.child(mAuth.getCurrentUser().getUid() + "."+getFileExtention(imageUri));
+
+            //Upload image to Storage
+            fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Uri downloadUri = uri;
+                            firebaseUser = mAuth.getCurrentUser();
+                            //Finally set the display image of the user after upload
+                            UserProfileChangeRequest profileUpadtes = new UserProfileChangeRequest.Builder()
+                                    .setPhotoUri(downloadUri).build();
+                            firebaseUser.updateProfile(profileUpadtes);
+                        }
+                    });
+                }
+            });
+        }
+    }
+    //obtain file extension of the image
+    private String getFileExtention(Uri uri){
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(uri));
+    }
+}**/
