@@ -18,7 +18,19 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
+        <activity>
+
+            android:name=".marksListView"
+            android:exported="false" />
+        <activity
+            android:name=".AccommodationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MarksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalendarActivity"
+            android:exported="false" />
         <activity
             android:name=".homePage"
             android:exported="false" />
