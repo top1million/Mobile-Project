@@ -13,6 +13,18 @@
         android:theme="@style/Theme.LabAndroidProject"
         tools:targetApi="31">
         <activity
+            android:name=".marksListView"
+            android:exported="false" />
+        <activity
+            android:name=".AccommodationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MarksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".homePage"
             android:exported="false" />
         <activity

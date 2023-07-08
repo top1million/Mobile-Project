@@ -27,14 +27,14 @@
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:text="Button" />
+            android:text="Academic Calendar" />
 
         <Button
             android:id="@+id/button12"
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:text="Button" />
+            android:text="Marks" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,7 +54,7 @@
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
-            android:text="Button" />
+            android:text="Accommodation" />
     </LinearLayout>
 
     <LinearLayout
