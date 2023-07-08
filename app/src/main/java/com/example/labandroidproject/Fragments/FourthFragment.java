@@ -91,10 +91,19 @@ public class FourthFragment extends Fragment {
 
         //Set User DP (After user has uploaded)
 
-        Uri uri = firebaseUser.getPhotoUrl();
+        if (firebaseUser != null) {
+            Uri uri = firebaseUser.getPhotoUrl();
+            if (uri != null) {
+                //ImageViewer setImageURI() should not be used with regular URI. So we are using Picasso
+                Picasso.with(getActivity()).load(uri).into(mImageView);
+            }
+        } else {
+            // Handle the case when the firebaseUser is null
+            // For example, display a default image or show an error message
+        }
 
-        //ImageViewer setImageURI() should not be used with regular URI. So we are using Picasso
-        Picasso.with(getActivity()).load(uri).into(mImageView);
+
+
 
         textDeleteUser.setOnClickListener(new View.OnClickListener() {
             @Override

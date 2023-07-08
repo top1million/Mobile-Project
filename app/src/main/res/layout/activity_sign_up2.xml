@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SignUp2">
-    <!--    this.email = email;-->
-    <!--    this.firstName = firstName;-->
-    <!--    this.lastName = lastName;-->
-    <!--    this.password = password;-->
-    <!--    this.personalPhoto = personalPhoto;-->
-    <!--    this.Role = Role;-->
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +46,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         />
-
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"

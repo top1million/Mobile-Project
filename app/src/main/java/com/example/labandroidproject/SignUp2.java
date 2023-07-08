@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,14 +38,12 @@ public class SignUp2 extends AppCompatActivity {
         EditText firstName = findViewById(R.id.firstName);
         EditText lastName = findViewById(R.id.lastName);
         EditText email = findViewById(R.id.email);
-        Button upload_photo = findViewById(R.id.upload);
         Button signUp = findViewById(R.id.signUp);
         String role = getIntent().getStringExtra("role");
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         firebaseUser = mAuth.getCurrentUser();
-
 
         signUp.setOnClickListener(view -> {
             if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
@@ -56,9 +55,7 @@ public class SignUp2 extends AppCompatActivity {
             newUser.setLastName(lastName.getText().toString());
             newUser.setEmail(email.getText().toString());
             newUser.setPassword(password.getText().toString());
-            String imageUriString = imageUri.toString();
 
-            newUser.setPersonalPhoto(imageUriString);
             newUser.setRole(role);
             ArrayList<Message> messages = new ArrayList<>();
             newUser.setMessages(messages);
@@ -96,36 +93,3 @@ public class SignUp2 extends AppCompatActivity {
         }
     }
 }
-    /*
-    private void UploadPic(){
-        if(imageUri!=null)
-        {
-            //save the image with uid of the currently logged user
-            StorageReference fileReference = storageReference.child(mAuth.getCurrentUser().getUid() + "."+getFileExtention(imageUri));
-
-            //Upload image to Storage
-            fileReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Uri downloadUri = uri;
-                            firebaseUser = mAuth.getCurrentUser();
-                            //Finally set the display image of the user after upload
-                            UserProfileChangeRequest profileUpadtes = new UserProfileChangeRequest.Builder()
-                                    .setPhotoUri(downloadUri).build();
-                            firebaseUser.updateProfile(profileUpadtes);
-                        }
-                    });
-                }
-            });
-        }
-    }
-    //obtain file extension of the image
-    private String getFileExtention(Uri uri){
-        ContentResolver cR = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(uri));
-    }
-}**/

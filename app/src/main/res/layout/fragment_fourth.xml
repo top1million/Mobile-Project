@@ -36,7 +36,7 @@
                 android:contentDescription="Profile Picture"
                 android:padding="16dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/hand" />
+                android:src="@drawable/no_profile_pic" />
 
             <!-- Theme Section -->
             <TextView
@@ -120,15 +120,7 @@
                 android:text="Delete Profile"
                 android:textSize="14sp" />
 
-            <Button
-                android:id="@+id/signOut"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingStart="24dp"
-                android:paddingEnd="16dp"
-                android:text="Log out"
-                android:textSize="14sp" />
+
 
             <!-- Notifications Section -->
             <TextView
@@ -163,72 +155,6 @@
                 android:ems="10"
                 android:inputType="textMultiLine|textPersonName"
                 android:text="Name" />
-
-            <!-- Data and Storage Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingTop="24dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:text="Data and Storage"
-                android:textColor="@color/purple_200"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/text_clear_cache"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingStart="24dp"
-                android:paddingEnd="16dp"
-                android:text="Clear Cache"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/text_manage_storage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingStart="24dp"
-                android:paddingEnd="16dp"
-                android:text="Manage Storage"
-                android:textSize="14sp" />
-
-            <!-- Privacy and Security Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingTop="24dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:text="Privacy and Security"
-                android:textColor="@color/purple_200"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/text_privacy_settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingStart="24dp"
-                android:paddingEnd="16dp"
-                android:text="Privacy Settings"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/text_security_settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingStart="24dp"
-                android:paddingEnd="16dp"
-                android:text="Security Settings"
-                android:textSize="14sp" />
 
             <!-- About Section -->
             <TextView
@@ -272,7 +198,15 @@
                 android:paddingEnd="16dp"
                 android:text="Privacy Policy"
                 android:textSize="14sp" />
-
+            <Button
+                android:id="@+id/signOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Log out"
+                android:textSize="14sp" />
         </LinearLayout>
 
     </ScrollView>
