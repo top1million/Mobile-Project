@@ -36,32 +36,7 @@ public class students_instructors extends Fragment {
         Spinner spinner = v.findViewById(R.id.spinner);
         CollectionReference users = db.collection("users_test");
         TextView textView =  v.findViewById(R.id.textView2);
-        if(spinner.getSelectedItem().toString().equals("Students")){
-            ArrayList<Trainee> trainees = new ArrayList<>();
-            users.whereEqualTo("role","Trainee").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot document : task.getResult()){
-                        Trainee trainee = document.toObject(Trainee.class);
-                        trainees.add(trainee);
-                        textView.setText(trainee.getFirstName()+" "+trainee.getLastName()+"\n");
 
-                    }
-                }
-            });
-        }
-        else{
-            ArrayList<Instructor> instructors = new ArrayList<>();
-            users.whereEqualTo("role","Instructor").get().addOnCompleteListener(task -> {
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot document : task.getResult()){
-                        Instructor instructor = document.toObject(Instructor.class);
-                        instructors.add(instructor);
-                        textView.setText(instructor.getFirstName()+" "+instructor.getLastName()+"\n");
-                    }
-
-                }
-            });
-        }
 
 
 

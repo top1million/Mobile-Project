@@ -1,5 +1,6 @@
 package com.example.labandroidproject.SignUps;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,8 +15,14 @@ import android.widget.Toast;
 import com.example.labandroidproject.Class.Message;
 import com.example.labandroidproject.Class.User;
 import com.example.labandroidproject.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 
@@ -25,6 +32,8 @@ public class Admin_SignUp extends AppCompatActivity {
     int imageId;
     FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,11 +65,6 @@ public class Admin_SignUp extends AppCompatActivity {
                 imageUri = Uri.parse("android.resource://com.example.labandroidproject/drawable/blank_profile_picture");
             }
             imageId = getResources().getIdentifier(imageUri.toString(), null, getPackageName());
-            newUser.setImageId(imageId);
-            String imageUri = this.imageUri.toString();
-            newUser.setPersonalPhoto(imageUri);
-            ArrayList<Message> messages = new ArrayList<>();
-            newUser.setMessages(messages);
             newUser.setRole("Admin");
             db.collection("Admin").document(newUser.getEmail()).set(newUser);
             mAuth.createUserWithEmailAndPassword(newUser.getEmail(), newUser.getPassword()).addOnCompleteListener(task -> {
@@ -76,6 +80,35 @@ public class Admin_SignUp extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==1 && resultCode==RESULT_OK && data!=null){
             imageUri = data.getData();
+            uploadImage(imageUri);
         }
+    }
+
+    private void uploadImage(Uri imageUri) {
+        EditText email = findViewById(R.id.email);
+        UploadTask uploadTask = storageRef.child("lol/"+email.getText().toString()).putFile(imageUri);
+
+        // Register observers to listen for the upload progress or errors
+        uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                // Get the progress of the upload
+
+                // Update UI or show progress dialog
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // Handle successful uploads
+                imageId = taskSnapshot.hashCode();
+
+            }
+        });
     }
 }

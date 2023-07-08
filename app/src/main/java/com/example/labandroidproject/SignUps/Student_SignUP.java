@@ -1,5 +1,6 @@
 package com.example.labandroidproject.SignUps;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,8 +14,15 @@ import android.widget.Toast;
 
 import com.example.labandroidproject.Class.Trainee;
 import com.example.labandroidproject.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class Student_SignUP extends AppCompatActivity {
     ImageView imageView;
@@ -22,8 +30,13 @@ public class Student_SignUP extends AppCompatActivity {
     int imageId;
     FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FirebaseApp.initializeApp(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_sign_up);
         // when click on the button load the student's profile picture
@@ -53,14 +66,6 @@ public class Student_SignUP extends AppCompatActivity {
             newUser.setPassword(password.getText().toString());
             newUser.setMobileNumber(mobileNumber.getText().toString());
             newUser.setAddress(address.getText().toString());
-            if(imageUri == null){
-                imageId = getResources().getIdentifier("blank_profile_picture", "drawable", getPackageName());
-                imageUri = Uri.parse("android.resource://com.example.labandroidproject/drawable/blank_profile_picture");
-            }
-            imageId = getResources().getIdentifier(imageUri.toString(), null, getPackageName());
-            newUser.setImageId(imageId);
-            String imageUri = this.imageUri.toString();
-            newUser.setPersonalPhoto(imageUri);
             newUser.setRole("Student");
             db.collection("Student").document(newUser.getEmail()).set(newUser);
             Intent intent = new Intent(Student_SignUP.this, SignIn.class);
@@ -72,8 +77,35 @@ public class Student_SignUP extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==1 && resultCode==RESULT_OK && data!=null){
             imageUri = data.getData();
-            imageView = (ImageView) findViewById(R.id.imageView);
-            imageView.setImageURI(imageUri);
+            uploadImage(imageUri);
         }
+    }
+
+    private void uploadImage(Uri imageUri) {
+        EditText email = findViewById(R.id.email);
+        UploadTask uploadTask = storageRef.child("lol/"+email.getText().toString()).putFile(imageUri);
+
+        // Register observers to listen for the upload progress or errors
+        uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                // Get the progress of the upload
+
+                // Update UI or show progress dialog
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // Handle successful uploads
+                imageId = taskSnapshot.hashCode();
+
+            }
+        });
     }
 }

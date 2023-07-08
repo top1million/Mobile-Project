@@ -1,5 +1,6 @@
 package com.example.labandroidproject.SignUps;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,16 +15,24 @@ import android.widget.Toast;
 
 import com.example.labandroidproject.Class.Instructor;
 import com.example.labandroidproject.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 
 public class Instructor_SignUp extends AppCompatActivity {
     ImageView imageView;
-    int storeId;
     Uri imageUri ;
+    int imageId;
     FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +65,6 @@ public class Instructor_SignUp extends AppCompatActivity {
             newUser.setMobileNumber(phone.getText().toString());
             newUser.setAddress(address.getText().toString());
             newUser.setSpecialization(specialization.getSelectedItem().toString());
-            newUser.setImageId(storeId);
             newUser.setRole("Instructor");
             db.collection("Instructor").document(newUser.getEmail()).set(newUser);
             Toast.makeText(this, "Instructor added successfully", Toast.LENGTH_SHORT).show();
@@ -70,19 +78,35 @@ public class Instructor_SignUp extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==1 && resultCode==RESULT_OK && data!=null){
             imageUri = data.getData();
-            imageView = (ImageView) findViewById(R.id.imageView);
-            imageView.setImageURI(imageUri);
-            //upload image to firebase storage
-
-            //get image id
-            storeId = Integer.parseInt(imageUri.getLastPathSegment());
-
-            //get imageview from firebase storage
-            //StorageReference storageRef = storage.getReference();
-            //StorageReference pathReference = storageRef.child("images/"+storeId);
-            //Glide.with(this).load(pathReference).into(imageView);
-
-
+            uploadImage(imageUri);
         }
+    }
+
+    private void uploadImage(Uri imageUri) {
+        EditText email = findViewById(R.id.email);
+        UploadTask uploadTask = storageRef.child("lol/"+email.getText().toString()).putFile(imageUri);
+
+        // Register observers to listen for the upload progress or errors
+        uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                // Get the progress of the upload
+
+                // Update UI or show progress dialog
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // Handle successful uploads
+                imageId = taskSnapshot.hashCode();
+
+            }
+        });
     }
 }
