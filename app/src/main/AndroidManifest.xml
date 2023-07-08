@@ -28,7 +28,7 @@
             android:name=".SignUps.Admin_SignUp"
             android:exported="false" />
         <activity
-            android:name=".SignUps.SignUp"
+            android:name=".SignUps.chooseRole"
             android:exported="false" />
         <activity
             android:name=".SignUps.SignIn"

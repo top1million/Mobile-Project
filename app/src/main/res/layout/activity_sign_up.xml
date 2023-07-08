@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/sign_up"
-    tools:context=".SignUps.SignUp">
+    tools:context=".SignUps.chooseRole">
 
     <Spinner
         android:paddingStart="20dp"

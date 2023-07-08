@@ -11,7 +11,7 @@ import android.widget.Spinner;
 import com.example.labandroidproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignUp extends AppCompatActivity {
+public class chooseRole extends AppCompatActivity {
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +25,15 @@ public class SignUp extends AppCompatActivity {
         signUp.setOnClickListener(view -> {
             String role1 = role.getSelectedItem().toString();
             if (role1.equals("Student")) {
-                Intent intent = new Intent(SignUp.this, Student_SignUP.class);
+                Intent intent = new Intent(chooseRole.this, Student_SignUP.class);
                 intent.putExtra("role", role1);
                 startActivity(intent);
             } else if (role1.equals("Instructor")) {
-                Intent intent = new Intent(SignUp.this, Instructor_SignUp.class);
+                Intent intent = new Intent(chooseRole.this, Instructor_SignUp.class);
                 intent.putExtra("role", role1);
                 startActivity(intent);
             } else if (role1.equals("Admin")) {
-                Intent intent = new Intent(SignUp.this, Admin_SignUp.class);
+                Intent intent = new Intent(chooseRole.this, Admin_SignUp.class);
                 intent.putExtra("role", role1);
                 startActivity(intent);
             }

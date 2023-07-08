@@ -1,4 +1,4 @@
-package com.example.labandroidproject.Fragments;
+package com.example.labandroidproject.student;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

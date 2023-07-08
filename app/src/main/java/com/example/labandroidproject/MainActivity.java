@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.labandroidproject.SignUps.SignIn;
-import com.example.labandroidproject.SignUps.SignUp;
+import com.example.labandroidproject.SignUps.chooseRole;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SignUp.class);
+                Intent intent = new Intent(MainActivity.this, chooseRole.class);
                 startActivity(intent);
             }
         });

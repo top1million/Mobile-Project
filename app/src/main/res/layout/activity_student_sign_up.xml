@@ -86,6 +86,7 @@
         android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Phone Number"
+        android:id="@+id/mobileNumber"
         android:inputType="phone"
         android:paddingStart="20dp"
         android:paddingRight="25dp"

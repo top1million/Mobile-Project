@@ -75,6 +75,7 @@
         android:textColorHint="#979797" />
 
     <EditText
+        android:id="@+id/phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_marginLeft="20dp"
@@ -174,18 +175,10 @@
             android:layout_height="41dp"
             android:layout_weight="1"
             android:fontFamily="@font/montserratregular"
-            android:background="@drawable/style_spinner" />
+            android:background="@drawable/style_spinner"
+            android:entries="@array/specs"/>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/montserratbold"
-        android:text="Please list all the courses you can teach" />
 
     <Button
         android:id="@+id/upload"
@@ -198,16 +191,6 @@
         android:text="upload photo"
         android:textColor="#ffffff"
         android:textSize="15sp" />
-
-    <Spinner
-        android:id="@+id/courses"
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:fontFamily="@font/montserratregular"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/style_spinner" />
 
     <Button
         android:id="@+id/signUp"
