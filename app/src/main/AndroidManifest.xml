@@ -13,13 +13,6 @@
         android:theme="@style/Theme.LabAndroidProject"
         tools:targetApi="31">
         <activity
-            android:name=".SendMessageActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        <activity>
-
             android:name=".marksListView"
             android:exported="false" />
         <activity
