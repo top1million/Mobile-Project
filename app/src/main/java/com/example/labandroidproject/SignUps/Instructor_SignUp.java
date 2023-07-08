@@ -16,6 +16,7 @@ import com.example.labandroidproject.Class.Instructor;
 import com.example.labandroidproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.StorageReference;
 
 public class Instructor_SignUp extends AppCompatActivity {
     ImageView imageView;
@@ -23,9 +24,9 @@ public class Instructor_SignUp extends AppCompatActivity {
     int imageId;
     FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructor_sign_up);
         // when click on the button load the instructor's profile picture
@@ -57,14 +58,6 @@ public class Instructor_SignUp extends AppCompatActivity {
             newUser.setAddress(address.getText().toString());
             newUser.setSpecialization(specialization.getSelectedItem().toString());
 
-            if(imageUri == null){
-                imageId = getResources().getIdentifier("blank_profile_picture", "drawable", getPackageName());
-                imageUri = Uri.parse("android.resource://com.example.labandroidproject/drawable/blank_profile_picture");
-            }
-            imageId = getResources().getIdentifier(imageUri.toString(), null, getPackageName());
-            newUser.setImageId(imageId);
-            String imageUri = this.imageUri.toString();
-            newUser.setPersonalPhoto(imageUri);
             newUser.setRole("Instructor");
             db.collection("users_test").document(newUser.getEmail()).set(newUser);
             Toast.makeText(this, "Instructor added successfully", Toast.LENGTH_SHORT).show();
@@ -78,6 +71,8 @@ public class Instructor_SignUp extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==1 && resultCode==RESULT_OK && data!=null){
             imageUri = data.getData();
+            imageView = (ImageView) findViewById(R.id.imageView);
+            imageView.setImageURI(imageUri);
         }
     }
 }

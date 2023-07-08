@@ -72,6 +72,8 @@ public class Student_SignUP extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==1 && resultCode==RESULT_OK && data!=null){
             imageUri = data.getData();
+            imageView = (ImageView) findViewById(R.id.imageView);
+            imageView.setImageURI(imageUri);
         }
     }
 }
