@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/sign_up"
     android:orientation="vertical"
-    tools:context=".SignUps.SignUp2">
+    tools:context=".SignUps.Admin_SignUp">
     <!--    this.email = email;-->
     <!--    this.firstName = firstName;-->
     <!--    this.lastName = lastName;-->

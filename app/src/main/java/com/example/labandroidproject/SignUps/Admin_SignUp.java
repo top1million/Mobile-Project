@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class SignUp2 extends AppCompatActivity {
+public class Admin_SignUp extends AppCompatActivity {
     ImageView imageView;
     Uri imageUri ;
     FirebaseAuth mAuth;
@@ -50,6 +50,9 @@ public class SignUp2 extends AppCompatActivity {
             newUser.setLastName(lastName.getText().toString());
             newUser.setEmail(email.getText().toString());
             newUser.setPassword(password.getText().toString());
+            if(imageUri == null){
+                imageUri = Uri.parse("android.resource://com.example.labandroidproject/drawable/blank_profile_picture");
+            }
             String imageUri = this.imageUri.toString();
             newUser.setPersonalPhoto(imageUri);
             newUser.setRole(role);
@@ -58,7 +61,7 @@ public class SignUp2 extends AppCompatActivity {
             db.collection("users").document(newUser.getEmail()).set(newUser);
             mAuth.createUserWithEmailAndPassword(newUser.getEmail(), newUser.getPassword()).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(SignUp2.this, SignIn.class);
+                    Intent intent = new Intent(Admin_SignUp.this, SignIn.class);
                     startActivity(intent);
                 }
             });

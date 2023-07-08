@@ -33,7 +33,7 @@ public class SignUp extends AppCompatActivity {
                 intent.putExtra("role", role1);
                 startActivity(intent);
             } else if (role1.equals("Admin")) {
-                Intent intent = new Intent(SignUp.this, SignUp2.class);
+                Intent intent = new Intent(SignUp.this, Admin_SignUp.class);
                 intent.putExtra("role", role1);
                 startActivity(intent);
             }
