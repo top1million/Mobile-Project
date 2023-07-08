@@ -11,6 +11,7 @@
     <color name="darkTextColorPrimary">#FFFFFF</color>
     <color name="darkTextColorSecondary">#CCCCCC</color>
     <color name="dark_green">#006400</color>
+    <color name="red">#FF0000</color>
     <!-- Light theme colors -->
     <color name="lightBackground">#F5F5F5</color>
     <color name="lightTextColorPrimary">#212121</color>

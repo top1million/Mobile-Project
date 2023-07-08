@@ -110,6 +110,15 @@
                 android:paddingEnd="16dp"
                 android:text="Change Password"
                 android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_delete_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Delete Profile"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/signOut"

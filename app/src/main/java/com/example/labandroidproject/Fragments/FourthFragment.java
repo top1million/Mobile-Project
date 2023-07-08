@@ -1,9 +1,7 @@
 package com.example.labandroidproject.Fragments;
 
-import static android.content.ContentValues.TAG;
 import static android.content.Context.MODE_PRIVATE;
 
-import static androidx.core.app.ActivityCompat.recreate;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -38,6 +36,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.labandroidproject.Class.DeleteProfileActivity;
 import com.example.labandroidproject.Class.UpdateEmailActivity;
 import com.example.labandroidproject.Class.UploadProfilePicActivity;
 import com.example.labandroidproject.Class.User;
@@ -51,15 +50,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
+import com.squareup.picasso.Picasso;
 
 public class FourthFragment extends Fragment {
     private FirebaseAuth mAuth, authProfile;
@@ -67,7 +59,7 @@ public class FourthFragment extends Fragment {
     public static final String SHARED_PREFS = "sharedPrefs";
 
     private ImageView mImageView;
-    private TextView textViewWelcome, updage_email;
+    private TextView textViewWelcome, update_email,textDeleteUser;
     private Uri uri;
     String Uid;
 
@@ -93,7 +85,7 @@ public class FourthFragment extends Fragment {
         mImageView= view.findViewById(R.id.image_profile_picture);
         Button logout = view.findViewById(R.id.signOut);
         textViewWelcome = view.findViewById(R.id.text_username);
-
+        textDeleteUser = view.findViewById(R.id.text_delete_user);
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
@@ -104,9 +96,19 @@ public class FourthFragment extends Fragment {
         //ImageViewer setImageURI() should not be used with regular URI. So we are using Picasso
         Picasso.with(getActivity()).load(uri).into(mImageView);
 
+        textDeleteUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        TextView updage_email = view.findViewById(R.id.text_update_email);
-        updage_email.setOnClickListener(new View.OnClickListener() {
+                Intent intent = new Intent(getActivity(), DeleteProfileActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        update_email = view.findViewById(R.id.text_update_email);
+
+        update_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
