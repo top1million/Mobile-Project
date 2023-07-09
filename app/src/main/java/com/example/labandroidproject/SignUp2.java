@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 public class SignUp2 extends AppCompatActivity {
@@ -25,7 +24,6 @@ public class SignUp2 extends AppCompatActivity {
     FirebaseUser firebaseUser;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-    StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

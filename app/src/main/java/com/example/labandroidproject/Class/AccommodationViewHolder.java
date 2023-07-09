@@ -8,14 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.labandroidproject.R;
-
+//It serves as a container for the views that represent an item in the RecyclerView.
 public class AccommodationViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
     TextView textViewPhoneNumber;
     TextView textViewLocation;
     TextView textViewArea;
     TextView textViewNumberOfRooms;
-
+    //item view represents the layout of the item in the RecyclerView
     AccommodationViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView = itemView.findViewById(R.id.imageView);
