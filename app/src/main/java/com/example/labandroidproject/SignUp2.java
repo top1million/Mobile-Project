@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.labandroidproject.Class.Message;
-import com.example.labandroidproject.Class.UploadProfilePicActivity;
 import com.example.labandroidproject.Class.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -72,6 +70,8 @@ public class SignUp2 extends AppCompatActivity {
                         user.updateProfile(profileUpdates).addOnCompleteListener(updateProfileTask -> {
                             if (updateProfileTask.isSuccessful()) {
                                 Intent intent = new Intent(SignUp2.this, SignIn.class);
+                                //To prevent user from returning back to to register activity on pressing back button after registered
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(this, "Failed to update user profile", Toast.LENGTH_SHORT).show();
