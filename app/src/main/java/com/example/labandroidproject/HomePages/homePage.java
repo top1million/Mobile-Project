@@ -30,11 +30,11 @@ public class homePage extends AppCompatActivity{
             if (id == R.id.navigation_home){
                 replaceFragment(new admin_home_page());
             }
-            else if (id == R.id.navigation_notifications){
-                replaceFragment(new ThirdFragment());
-            }
-            else if(id == R.id.navigation_dashboard){
+            else if (id == R.id.navigation_dashboard){
                 replaceFragment(new SecondFragment());
+            }
+            else if(id == R.id.navigation_notifications){
+                replaceFragment(new ThirdFragment());
             }
             else if (id == R.id.settings){
                 replaceFragment(new FourthFragment());

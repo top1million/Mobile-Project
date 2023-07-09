@@ -33,6 +33,7 @@ public class Student_SignUP extends AppCompatActivity {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FirebaseApp.initializeApp(this);
@@ -68,8 +69,16 @@ public class Student_SignUP extends AppCompatActivity {
             newUser.setAddress(address.getText().toString());
             newUser.setRole("Student");
             db.collection("Student").document(newUser.getEmail()).set(newUser);
-            Intent intent = new Intent(Student_SignUP.this, SignIn.class);
-            startActivity(intent);
+            mAuth.createUserWithEmailAndPassword(newUser.getEmail(), newUser.getPassword()).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(this, "User Created", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Student_SignUP.this, SignIn.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "User Creation Failed", Toast.LENGTH_SHORT).show();
+                }
+            });
+
         });
     }
     @Override

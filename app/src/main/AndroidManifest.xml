@@ -37,6 +37,11 @@
             android:name=".SignUps.SignIn"
             android:exported="false" />
         <activity
+            android:name="com.example.labandroidproject.SendMessageActivity"
+            android:label="Send Message Activity" >
+        </activity>
+
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar" >

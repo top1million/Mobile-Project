@@ -67,9 +67,15 @@ public class Instructor_SignUp extends AppCompatActivity {
             newUser.setSpecialization(specialization.getSelectedItem().toString());
             newUser.setRole("Instructor");
             db.collection("Instructor").document(newUser.getEmail()).set(newUser);
-            Toast.makeText(this, "Instructor added successfully", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, Instructor_SignUp.class);
-            startActivity(intent);
+            mAuth.createUserWithEmailAndPassword(newUser.getEmail(), newUser.getPassword()).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(this, "User Created", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Instructor_SignUp.this, SignIn.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "User Creation Failed", Toast.LENGTH_SHORT).show();
+                }
+            });            Toast.makeText(this, "Instructor added successfully", Toast.LENGTH_SHORT).show();
         });
 
     }

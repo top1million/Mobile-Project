@@ -62,20 +62,9 @@ public class SecondFragment extends Fragment {
                     return;
                 }
 
-
-
-                  Message [] messegeList =  loggedUser.getMessages().toArray(new Message[0]);
-
-
-
+                Message [] messegeList =  loggedUser.getMessages().toArray(new Message[0]);
                 recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
                 recyclerView.setAdapter(new MessegesAdapter(v.getContext(), Arrays.asList(messegeList) ));
-
-
-
-
-
-
             }else
             {
                 recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
