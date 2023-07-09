@@ -35,8 +35,14 @@ public class SignUp2 extends AppCompatActivity {
         EditText confirmPassword = findViewById(R.id.confirmPassword);
         EditText firstName = findViewById(R.id.firstName);
         EditText lastName = findViewById(R.id.lastName);
+      
         EditText email = findViewById(R.id.email);
         Button signUp = findViewById(R.id.signUp);
+      
+        //EditText email = findViewById(R.id.textView_content);
+        //Button upload_photo = (Button) findViewById(R.id.upload);
+        //Button signUp = (Button) findViewById(R.id.signUp);
+
         String role = getIntent().getStringExtra("role");
 
         db = FirebaseFirestore.getInstance();

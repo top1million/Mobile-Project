@@ -31,7 +31,7 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         mAuth = FirebaseAuth.getInstance();
         Button signIn = (Button) findViewById(R.id.signIn);
-        EditText email = (EditText) findViewById(R.id.email);
+        EditText email = (EditText) findViewById(R.id.textView_content);
         EditText password = (EditText) findViewById(R.id.password);
         mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         CheckBoxRemember = (CheckBox) findViewById(R.id.remember_me_chkb);
