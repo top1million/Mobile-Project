@@ -7,4 +7,19 @@
         <item>Admin</item>
     </string-array>
 
+    <string-array name="specs">
+        <item>Biology</item>
+        <item>Chemistry</item>
+        <item>Physics</item>
+        <item>Mathematics</item>
+        <item>English</item>
+        <item>History</item>
+        <item>Geography</item>
+        <item>Computer Science</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="studentsorinstructors">
+        <item>Students</item>
+        <item>Instructors</item>
+    </string-array>
 </resources>

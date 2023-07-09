@@ -17,6 +17,17 @@ public class User {
     private String password;
     private String personalPhoto;
     private String Role;
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+    private int imageId;
+
     ArrayList<Message> messages = new ArrayList<Message>();
     public User() {
     }

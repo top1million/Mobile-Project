@@ -1,4 +1,4 @@
-package com.example.labandroidproject.Fragments;
+package com.example.labandroidproject.student;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.labandroidproject.R;
 
-public class instructor_home_page extends Fragment {
+public class student_home_page extends Fragment {
 
-    public instructor_home_page(){
+    public student_home_page(){
         // require a empty public constructor
     }
 
