@@ -1,14 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragments.FourthFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Account Section -->
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Username"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/image_profile_picture"
+                android:layout_width="169dp"
+                android:layout_height="152dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:contentDescription="Profile Picture"
+                android:padding="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/no_profile_pic" />
+
+            <!-- Theme Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="Theme"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_light_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="16dp"
+                    android:text="Light Mode"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_dark_theme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="16dp"
+                    android:text="Dark Mode"
+                    android:textSize="14sp" />
+
+            </RadioGroup>
+
+            <!-- Account Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="Account"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_update_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Update Email"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_change_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Change Password"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/text_delete_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Delete Profile"
+                android:textSize="14sp" />
+
+
+
+            <!-- Notifications Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="Notifications"
+                android:textColor="@color/purple_200"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Switch
+                android:id="@+id/switch_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Enable Notifications"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/signOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="12dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="16dp"
+                android:text="Log out"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

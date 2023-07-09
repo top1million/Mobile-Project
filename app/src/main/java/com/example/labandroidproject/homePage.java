@@ -1,7 +1,10 @@
 package com.example.labandroidproject;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -38,7 +41,10 @@ public class homePage extends AppCompatActivity{
             return true;
         });
 
+
     }
+
+
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
