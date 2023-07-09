@@ -5,17 +5,18 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="@drawable/background"
 
 
     android:orientation="vertical"
     tools:context=".admin.admin_home_page" >
 
     <ImageView
+        android:layout_marginTop="25dp"
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="258dp"
-        android:src="@drawable/hand" />
+        android:src="@drawable/mylogo" />
 
     <LinearLayout
         android:layout_width="wrap_content"
