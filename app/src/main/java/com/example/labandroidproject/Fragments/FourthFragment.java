@@ -51,6 +51,7 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 public class FourthFragment extends Fragment {
@@ -62,6 +63,8 @@ public class FourthFragment extends Fragment {
     private TextView textViewWelcome, update_email,textDeleteUser;
     private Uri uri;
     String Uid;
+
+    private EditText etToken;
 
 
     public FourthFragment() {
@@ -102,7 +105,29 @@ public class FourthFragment extends Fragment {
             // For example, display a default image or show an error message
         }
 
+        etToken = view.findViewById(R.id.etToken);
 
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            System.out.println("Fetching FCM registration token failed");
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                        // Log and toast
+                        //System.out.println(token);
+//                        Toast.makeText(getActivity(), "Your device registration token is" + token
+//                                , Toast.LENGTH_SHORT).show();
+
+                        etToken.setText(token);
+                    }
+                });
 
 
         textDeleteUser.setOnClickListener(new View.OnClickListener() {
