@@ -5,10 +5,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -29,7 +27,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
@@ -39,18 +36,17 @@ import android.widget.Toast;
 import com.example.labandroidproject.Class.DeleteProfileActivity;
 import com.example.labandroidproject.Class.UpdateEmailActivity;
 import com.example.labandroidproject.Class.UploadProfilePicActivity;
-import com.example.labandroidproject.Class.User;
 import com.example.labandroidproject.MainActivity;
 import com.example.labandroidproject.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
 public class FourthFragment extends Fragment {
@@ -131,14 +127,13 @@ public class FourthFragment extends Fragment {
 
 
 
-
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         authProfile = FirebaseAuth.getInstance();
 
         if (firebaseUser == null) {
             Toast.makeText(getActivity(), "Something went wrong! User's details are not avaibale at the moment", Toast.LENGTH_SHORT).show();
         } else {
-
-           textViewWelcome.setText("Welcome "+firebaseUser.getDisplayName().toUpperCase()+" !");
+           textViewWelcome.setText("Welcome ");
         }
 
 

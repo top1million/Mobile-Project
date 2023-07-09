@@ -16,9 +16,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.labandroidproject.Fragments.FourthFragment;
+import com.example.labandroidproject.HomePages.homePage;
 import com.example.labandroidproject.MainActivity;
 import com.example.labandroidproject.R;
-import com.example.labandroidproject.homePage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

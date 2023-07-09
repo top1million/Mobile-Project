@@ -18,9 +18,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.labandroidproject.HomePages.homePage;
 import com.example.labandroidproject.MainActivity;
 import com.example.labandroidproject.R;
-import com.example.labandroidproject.homePage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,8 +29,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -38,6 +36,7 @@ import com.google.firebase.storage.StorageReference;
 public class DeleteProfileActivity extends AppCompatActivity {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
+
     private EditText editTextUserPwd;
     private TextView textViewAuthenticated;
     private ProgressBar progressBar;
@@ -182,7 +181,7 @@ public class DeleteProfileActivity extends AppCompatActivity {
                     deleteUserDatA();
                     authProfile.signOut();
                     Toast.makeText(DeleteProfileActivity.this,"User has been deleted",Toast.LENGTH_SHORT);
-                    Intent intent = new Intent(DeleteProfileActivity.this,homePage.class);
+                    Intent intent = new Intent(DeleteProfileActivity.this, homePage.class);
                     startActivity(intent);
                     finish();
                 }else{
@@ -214,20 +213,6 @@ public class DeleteProfileActivity extends AppCompatActivity {
             }
         });
 
-        //Delete Data from Realtime Database
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Registered Users");
-        databaseReference.child(firebaseUser.getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Log.d(TAG,"On Success: User Data deleted");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG,e.getMessage());
-                Toast.makeText(DeleteProfileActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }
