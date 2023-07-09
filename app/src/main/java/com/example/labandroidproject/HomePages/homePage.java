@@ -27,13 +27,13 @@ public class homePage extends AppCompatActivity{
         replaceFragment(new admin_home_page());
         binding.bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id=item.getItemId();
-            if (id == R.id.navigation_home){
+            if (id == R.id.navigation_home ){
                 replaceFragment(new admin_home_page());
             }
-            else if (id == R.id.navigation_dashboard){
+            else if (id == R.id.navigation_notifications){
                 replaceFragment(new SecondFragment());
             }
-            else if(id == R.id.navigation_notifications){
+            else if(id == R.id.navigation_dashboard){
                 replaceFragment(new ThirdFragment());
             }
             else if (id == R.id.settings){

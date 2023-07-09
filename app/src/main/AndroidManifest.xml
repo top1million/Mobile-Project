@@ -41,6 +41,13 @@
             android:label="Send Message Activity" >
         </activity>
 
+<!--        CalendarActivity-->
+        <activity
+            android:name="com.example.labandroidproject.AccommodationActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.labandroidproject.CalendarActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
