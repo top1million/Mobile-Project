@@ -17,6 +17,7 @@ public class Trainee extends User {
     }
 
     public Trainee() {
+
     }
 
     public Trainee(String email, String firstName, String lastName, String password, String personalPhoto, String mobileNumber) {

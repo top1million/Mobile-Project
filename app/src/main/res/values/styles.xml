@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize other attributes of your app theme -->
+        <!-- For example: -->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    </style>
+
+    <!-- Dark theme -->
+    <style name="DarkTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/darkBackground</item>
+        <item name="android:textColorPrimary">@color/darkTextColorPrimary</item>
+        <item name="android:textColorSecondary">@color/darkTextColorSecondary</item>
+        <!-- Customize other attributes for the dark theme -->
+    </style>
+
+    <!-- Light theme -->
+    <style name="LightTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/lightBackground</item>
+        <item name="android:textColorPrimary">@color/lightTextColorPrimary</item>
+        <item name="android:textColorSecondary">@color/lightTextColorSecondary</item>
+        <!-- Customize other attributes for the light theme -->
+    </style>
+
+</resources>
