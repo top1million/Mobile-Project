@@ -1,6 +1,7 @@
 package com.example.labandroidproject.Class;
 
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -45,6 +47,11 @@ public class DeleteProfileActivity extends AppCompatActivity {
     private static final String TAG = "DeleteProfileActivity";
     private Button buttonReAuthenticate, buttonDeleteUser;
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +73,7 @@ public class DeleteProfileActivity extends AppCompatActivity {
         if(firebaseUser.equals("")){
             Toast.makeText(DeleteProfileActivity.this,"Something went wrong!"+"User Detils are not available at the moment.",
                     Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(DeleteProfileActivity.this, MainActivity.class);
+            Intent intent = new Intent(DeleteProfileActivity.this, homePage.class);
             startActivity(intent);
             finish();
         }else {
@@ -153,7 +160,7 @@ public class DeleteProfileActivity extends AppCompatActivity {
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                Intent intent = new Intent(DeleteProfileActivity.this, MainActivity.class);
+                Intent intent = new Intent(DeleteProfileActivity.this, homePage.class);
                 startActivity(intent);
                 finish();
             }
@@ -179,10 +186,18 @@ public class DeleteProfileActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    deleteUserDatA();
+
+
+                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("name", "false");
+                    editor.apply();
                     authProfile.signOut();
+                    deleteUserDatA();
                     Toast.makeText(DeleteProfileActivity.this,"User has been deleted",Toast.LENGTH_SHORT);
-                    Intent intent = new Intent(DeleteProfileActivity.this,homePage.class);
+
+                    Intent intent = new Intent(DeleteProfileActivity.this,MainActivity.class);
                     startActivity(intent);
                     finish();
                 }else{
@@ -198,21 +213,24 @@ public class DeleteProfileActivity extends AppCompatActivity {
     }
     //Delete all the date of user
     private void deleteUserDatA() {
-        //Delete Display Pic
-        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-        StorageReference storageReference = firebaseStorage.getReferenceFromUrl(firebaseUser.getPhotoUrl().toString());
-        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Log.d(TAG,"On Success: photo deleted");
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG,e.getMessage());
-                Toast.makeText(DeleteProfileActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-            }
-        });
+      if(firebaseUser.getPhotoUrl() != null)
+      {
+          //Delete Display Pic
+          FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+          StorageReference storageReference = firebaseStorage.getReferenceFromUrl(firebaseUser.getPhotoUrl().toString());
+          storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+              @Override
+              public void onSuccess(Void unused) {
+                  Log.d(TAG,"On Success: photo deleted");
+              }
+          }).addOnFailureListener(new OnFailureListener() {
+              @Override
+              public void onFailure(@NonNull Exception e) {
+                  Log.d(TAG,e.getMessage());
+                  Toast.makeText(DeleteProfileActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+              }
+          });
+      }
 
         //Delete Data from Realtime Database
 

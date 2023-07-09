@@ -2,12 +2,12 @@
 
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,9 +30,11 @@
 
             <ImageView
                 android:id="@+id/image_profile_picture"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="169dp"
+                android:layout_height="152dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
                 android:contentDescription="Profile Picture"
                 android:padding="16dp"
                 android:scaleType="centerCrop"
@@ -147,57 +149,6 @@
                 android:text="Enable Notifications"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/etToken"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textMultiLine|textPersonName"
-                android:text="Name" />
-
-            <!-- About Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingTop="24dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:text="About"
-                android:textColor="@color/purple_200"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/text_app_version"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingStart="24dp"
-                android:paddingEnd="16dp"
-                android:text="App Version"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/text_terms_of_service"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingStart="24dp"
-                android:paddingEnd="16dp"
-                android:text="Terms of Service"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/text_privacy_policy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingStart="24dp"
-                android:paddingEnd="16dp"
-                android:text="Privacy Policy"
-                android:textSize="14sp" />
             <Button
                 android:id="@+id/signOut"
                 android:layout_width="match_parent"
