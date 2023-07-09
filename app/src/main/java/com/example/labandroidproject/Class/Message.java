@@ -4,7 +4,7 @@ public class Message {
     String sender;
     String message;
     String title;
-    Boolean seen;
+    Boolean seen=false;
 
     public String getTitle() {
         return title;
@@ -23,6 +23,13 @@ public class Message {
     }
 
     public Message() {
+    }
+
+
+    public Message(String sender, String message, String title) {
+        this.sender = sender;
+        this.message = message;
+        this.title = title;
     }
 
     public String getSender() {

@@ -1,35 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Fragments.SecondFragment">
 
-    <EditText
-        android:id="@+id/email1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter reciver email"
-        android:inputType="textEmailAddress" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter title"
-        android:id="@+id/title" />
-
-
-    <EditText
-        android:id="@+id/content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="248dp"
-        android:hint="Content"
-        android:inputType="textMultiLine" />
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true" />
 
     <Button
-        android:id="@+id/send"
+        android:id="@+id/button_sendNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="19dp"
+        android:text="NEW MEMO"
+        />
+</RelativeLayout>
 
-</LinearLayout>

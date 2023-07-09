@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.labandroidproject.Fragments.SecondFragment;
 import com.example.labandroidproject.admin.admin_home_page;
 import com.example.labandroidproject.Fragments.FourthFragment;
 import com.example.labandroidproject.Fragments.ThirdFragment;
@@ -29,8 +30,11 @@ public class homePage extends AppCompatActivity{
             if (id == R.id.navigation_home){
                 replaceFragment(new admin_home_page());
             }
-            else if (id == R.id.profile){
+            else if (id == R.id.navigation_notifications){
                 replaceFragment(new ThirdFragment());
+            }
+            else if(id == R.id.navigation_dashboard){
+                replaceFragment(new SecondFragment());
             }
             else if (id == R.id.settings){
                 replaceFragment(new FourthFragment());

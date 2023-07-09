@@ -61,7 +61,7 @@
         android:textColorHint="#979797" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/textView_content"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="20dp"

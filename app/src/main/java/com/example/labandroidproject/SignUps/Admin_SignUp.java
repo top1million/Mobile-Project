@@ -42,7 +42,7 @@ public class Admin_SignUp extends AppCompatActivity {
         EditText confirmPassword = findViewById(R.id.confirmPassword);
         EditText firstName = findViewById(R.id.firstName);
         EditText lastName = findViewById(R.id.lastName);
-        EditText email = findViewById(R.id.email);
+        EditText email = findViewById(R.id.textView_content);
         Button upload_photo = (Button) findViewById(R.id.upload);
         Button signUp = (Button) findViewById(R.id.signUp);
         upload_photo.setOnClickListener(view -> {
