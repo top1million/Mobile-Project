@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="@drawable/background"
 
 
     android:orientation="vertical"
@@ -15,7 +15,8 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="258dp"
-        android:src="@drawable/hand" />
+        android:layout_marginTop="76dp"
+        android:src="@drawable/iconee" />
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -5,7 +5,6 @@ public class Message {
     String message;
     String title;
     Boolean seen;
-
     public String getTitle() {
         return title;
     }
