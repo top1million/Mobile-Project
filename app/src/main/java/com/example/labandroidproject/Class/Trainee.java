@@ -12,9 +12,10 @@ public class Trainee extends User {
         return takenCourses;
     }
 
-    public void setTakenCourses(ArrayList<Course> takenCourses) {
+    public void setTakenCourses(ArrayList takenCourses) {
         this.takenCourses = takenCourses;
     }
+
 
     public Trainee() {
 

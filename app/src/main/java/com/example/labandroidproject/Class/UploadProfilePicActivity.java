@@ -46,7 +46,6 @@ public class UploadProfilePicActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_profile_pic);
-        getSupportActionBar().setTitle("Upload Profile Picture");
 
 
         Button buttonUploadPicChoose = findViewById(R.id.upload_pic_choose_button);

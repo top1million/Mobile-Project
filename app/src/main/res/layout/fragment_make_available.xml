@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/sign_in"
     tools:context=".admin.make_available">
 
     <TextView
@@ -13,8 +14,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/montserratbold"
-        android:text="make course available"
-        android:textColor="#646464"
+        android:text="Make Course Available"
+        android:textColor="@color/white"
         android:textSize="30sp" />
 
     <Spinner
@@ -22,6 +23,7 @@
         android:layout_width="277dp"
         android:layout_height="61dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/style_spinner"
@@ -55,36 +57,56 @@
             android:paddingRight="25dp"
             android:textColorHint="#979797" />
 
-        <EditText
-            android:id="@+id/registrationDeadline"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:drawablePadding="12dp"
-            android:hint="registrationDeadline"
-            android:inputType="date"
-            android:maxLength="20"
-            android:paddingStart="20dp"
-            android:paddingRight="25dp"
-            android:textColorHint="#979797" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/courseStartDate"
-            android:inputType="datetime"
+            <TextView
+                android:id="@+id/showText_1"
+                android:layout_width="253dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="19dp"
+                android:text="Course Deadline" />
+
+            <Button
+                android:id="@+id/registrationDeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/register_buttons"
+                android:textColor="@color/white"
+                android:text="Choose The Date" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/textview_background"
-            android:drawablePadding="12dp"
-            android:hint="courseStartDate"
-            android:paddingStart="20dp"
-            android:paddingRight="25dp"
-            android:textColorHint="#979797" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/showText"
+                android:layout_width="253dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="19dp"
+                android:text="Course Start Date" />
+
+            <Button
+                android:id="@+id/courseStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/register_buttons"
+                android:textColor="@color/white"
+                android:text="choose the date" />
+        </LinearLayout>
+
         <EditText
             android:id="@+id/courseSchedule"
             android:inputType="datetime"
@@ -114,15 +136,19 @@
             android:textColorHint="#979797" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/makeAvailable"
+            android:layout_width="221dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="45dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/register_buttons"
+            android:textColor="@color/white"
             android:fontFamily="@font/montserratbold"
             android:text="make available"
-            android:textSize="20sp"
-            android:id="@+id/makeAvailable"/>
+
+
+            android:textSize="20sp" />
 
 
     </LinearLayout>
