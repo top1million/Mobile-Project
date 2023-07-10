@@ -3,6 +3,7 @@ package com.example.labandroidproject.HomePages;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.example.labandroidproject.Fragments.FourthFragment;
 import com.example.labandroidproject.Fragments.ThirdFragment;
 import com.example.labandroidproject.R;
 import com.example.labandroidproject.databinding.ActivityHomePageBinding;
+import com.example.labandroidproject.student.student_home_page;
 
 public class homePage extends AppCompatActivity{
     ActivityHomePageBinding binding;
@@ -24,11 +26,16 @@ public class homePage extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         binding= ActivityHomePageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new admin_home_page());
+        replaceFragment(new ThirdFragment());
+        String role = getIntent().getStringExtra("role");
+        Toast.makeText(this, role, Toast.LENGTH_SHORT).show();
         binding.bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id=item.getItemId();
-            if (id == R.id.navigation_home ){
+            if (id == R.id.navigation_home && role.equals("admin")){
                 replaceFragment(new admin_home_page());
+            }
+            else if (id == R.id.navigation_home && role.equals("student")){
+                replaceFragment(new student_home_page());
             }
             else if (id == R.id.navigation_notifications){
                 replaceFragment(new SecondFragment());

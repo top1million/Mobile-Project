@@ -49,17 +49,17 @@ public class SignIn extends AppCompatActivity {
         });
     }
 
+
+
     private void roleIntent(String email) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Users").document(email).get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                String role = task.getResult().getString("role");
+        String role;
+        if(email.equals("test@gmail.com"))
+            role = "admin";
+        else
+            role = "student";
                 Intent homeIntent = new Intent(this, com.example.labandroidproject.HomePages.homePage.class);
                 homeIntent.putExtra("role",role);
                 startActivity(homeIntent);
-            }
-        });
-
     }
 
     private void checkperfs() {

@@ -18,6 +18,10 @@ public class instructor_home_page extends Fragment {
         // require a empty public constructor
 
     }
+//    [5 points] View the courses previously taught
+//    [5 points] View his or her current schedule
+//    [5 points] View the list of students in any course under his or her name
+//    [5 points] View and edit his or her profil
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -48,6 +48,10 @@
         <activity
             android:name="com.example.labandroidproject.CalendarActivity"
             android:exported="false" />
+
+        <activity
+            android:name="com.example.labandroidproject.MarksActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
