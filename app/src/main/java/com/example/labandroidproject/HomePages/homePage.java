@@ -37,6 +37,9 @@ public class homePage extends AppCompatActivity{
             else if (id == R.id.navigation_home && role.equals("student")){
                 replaceFragment(new student_home_page());
             }
+            else if (id == R.id.navigation_home && role.equals("instructor")){
+                replaceFragment(new student_home_page());
+            }
             else if (id == R.id.navigation_notifications){
                 replaceFragment(new SecondFragment());
             }

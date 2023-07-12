@@ -55,11 +55,14 @@ public class SignIn extends AppCompatActivity {
         String role;
         if(email.equals("test@gmail.com"))
             role = "admin";
-        else
+        else if(email.equals("teststudent@gmail.com"))
             role = "student";
-                Intent homeIntent = new Intent(this, com.example.labandroidproject.HomePages.homePage.class);
-                homeIntent.putExtra("role",role);
-                startActivity(homeIntent);
+        else{
+            role = "instructor";
+        }
+        Intent homeIntent = new Intent(this, com.example.labandroidproject.HomePages.homePage.class);
+        homeIntent.putExtra("role",role);
+        startActivity(homeIntent);
     }
 
     private void checkperfs() {
