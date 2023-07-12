@@ -17,6 +17,7 @@ import com.example.labandroidproject.Fragments.FourthFragment;
 import com.example.labandroidproject.Fragments.ThirdFragment;
 import com.example.labandroidproject.R;
 import com.example.labandroidproject.databinding.ActivityHomePageBinding;
+import com.example.labandroidproject.instructor.instructor_home_page;
 import com.example.labandroidproject.student.student_home_page;
 
 public class homePage extends AppCompatActivity{
@@ -38,7 +39,7 @@ public class homePage extends AppCompatActivity{
                 replaceFragment(new student_home_page());
             }
             else if (id == R.id.navigation_home && role.equals("instructor")){
-                replaceFragment(new student_home_page());
+                replaceFragment(new instructor_home_page());
             }
             else if (id == R.id.navigation_notifications){
                 replaceFragment(new SecondFragment());
